@@ -1,0 +1,223 @@
+<!-- Hero Section -->
+<section id="home" class="hero-section" style="padding-top: 4rem; padding-bottom: 4rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; min-height: 90vh; display: flex; align-items: center;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 fade-in-left" appScrollAnimation>
+        <h1 class="display-3 fw-bold mb-4" style="font-size: 3.5rem;">Commercial Cleaning Professionals at Your Service</h1>
+        <p class="lead mb-4" style="font-size: 1.25rem; opacity: 0.9;">Meeting higher building standards with impeccable service, green cleaning, and over 50 years of excellence.</p>
+        <div class="d-flex gap-3 flex-wrap hero-buttons">
+          <button class="btn btn-accent btn-lg mb-5" (click)="scrollToSection('contact'); $event.preventDefault()">Get Started</button>
+          <button class="btn btn-outline-light btn-lg mb-5" (click)="scrollToSection('services'); $event.preventDefault()">Our Services</button>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in-right" appScrollAnimation>
+        <div class="text-center">
+          <div style="background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(10px);">
+            <h3 class="mb-4">Why Choose Us?</h3>
+            <ul class="list-unstyled text-start" style="font-size: 1.125rem;">
+              <li class="mb-3">✓ Impeccable Service</li>
+              <li class="mb-3">✓ Green Cleaning</li>
+              <li class="mb-3">✓ Supplier Diversity</li>
+              <li class="mb-3">✓ GB Honors Certified</li>
+              <li class="mb-3">✓ 50+ Years in Business</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section" style="background: linear-gradient(180deg, rgba(70, 171, 131, 0.1) 0%, rgba(38, 103, 167, 0.1) 100%);">
+  <div class="container">
+    <div class="fade-in" appScrollAnimation>
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive cleaning solutions tailored to your needs</p>
+    </div>
+    <div class="row g-4 mt-4">
+      @for (service of services; track service.title; let i = $index) {
+        <div class="col-md-6 col-lg-3">
+          @if (i === 0) {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-1"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
+              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
+                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
+              </div>
+            </div>
+          } @else if (i === 1) {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-2"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
+              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
+                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
+              </div>
+            </div>
+          } @else if (i === 2) {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-3"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
+              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
+                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
+              </div>
+            </div>
+          } @else {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-4"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
+              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
+              <div class="card-body text-center">
+                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
+                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section" style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%);">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 fade-in-left" appScrollAnimation>
+        <h2 class="section-title text-start">About Our Company</h2>
+        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 1.5rem;">
+          We are committed to quality service. Since our founding, we have been providing world-class
+          commercial cleaning services with a focus on excellence, sustainability, and customer satisfaction.
+        </p>
+        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 2rem;">
+          Our vision is to create a profitable company that projects a professional environment which
+          keeps its customers pleased and employees motivated.
+        </p>
+        <div class="row g-4">
+          <div class="col-6">
+            <div class="text-center p-3 mb-5" style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); border-radius: 0.5rem; color: white;">
+              <h3 style="color: white; font-size: 2.5rem; font-weight: bold;">50+</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0;">Years Experience</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="text-center p-3 mb-5" style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); border-radius: 0.5rem; color: white;">
+              <h3 style="color: white; font-size: 2.5rem; font-weight: bold;">500+</h3>
+              <p style="color: rgba(255,255,255,0.9); margin: 0;">Happy Clients</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in-right" appScrollAnimation>
+        <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 1rem; padding: 3rem; color: white; min-height: 25rem; display: flex; flex-direction: column; justify-content: center;">
+          <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Our Mission</h3>
+          <p style="font-size: 1.125rem; line-height: 1.8; opacity: 0.95;">
+            To provide cost-effective, world-class integrated facility services to commercial building
+            owners and managers nationwide, while simultaneously providing their employees, tenants, and
+            visitors a clean environment in which to work and visit.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="section" style="background: linear-gradient(180deg, rgba(38, 103, 167, 0.1) 0%, rgba(70, 171, 131, 0.15) 100%);">
+  <div class="container">
+    <div class="fade-in" appScrollAnimation>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-subtitle">Trusted by businesses nationwide</p>
+    </div>
+    <div class="row g-4 mt-4">
+      @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+        <div class="col-md-6">
+          @if (i === 0) {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-1"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.95) 0%, rgba(38, 103, 167, 0.95) 100%); color: white; border-radius: 1rem; padding: 2rem;">
+              <div class="card-body">
+                <div class="mb-3">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <span style="color: #ffc107; font-size: 1.25rem;">★</span>
+                  }
+                </div>
+                <p class="card-text" style="font-size: 1.125rem; color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 1.5rem;">
+                  "{{ testimonial.text }}"
+                </p>
+                <div>
+                  <h6 style="color: var(--accent-color); font-weight: bold; margin-bottom: 0.25rem;">{{ testimonial.name }}</h6>
+                  <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.875rem;">{{ testimonial.role }}, {{ testimonial.company }}</p>
+                </div>
+              </div>
+            </div>
+          } @else {
+            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-2"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, rgba(70, 171, 131, 0.95) 0%, rgba(19, 66, 96, 0.95) 100%); color: white; border-radius: 1rem; padding: 2rem;">
+              <div class="card-body">
+                <div class="mb-3">
+                  @for (star of [1,2,3,4,5]; track star) {
+                    <span style="color: #ffc107; font-size: 1.25rem;">★</span>
+                  }
+                </div>
+                <p class="card-text" style="font-size: 1.125rem; color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 1.5rem;">
+                  "{{ testimonial.text }}"
+                </p>
+                <div>
+                  <h6 style="color: var(--info-color); font-weight: bold; margin-bottom: 0.25rem;">{{ testimonial.name }}</h6>
+                  <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.875rem;">{{ testimonial.role }}, {{ testimonial.company }}</p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+  <div class="container">
+    <div class="fade-in" appScrollAnimation>
+      <h2 class="section-title" style="color: white;">Get In Touch</h2>
+      <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Contact us today for a free quote</p>
+    </div>
+    <div class="row mt-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="card border-0 shadow-lg fade-in" appScrollAnimation style="border-radius: 1rem; padding: 2.5rem;">
+          <form>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Name</label>
+                <input type="text" class="form-control" placeholder="Your Name" style="padding: 0.75rem; border-radius: 0.5rem;">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Email</label>
+                <input type="email" class="form-control" placeholder="your.email@example.com" style="padding: 0.75rem; border-radius: 0.5rem;">
+              </div>
+              <div class="col-12">
+                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Phone</label>
+                <input type="tel" class="form-control" placeholder="(555) 123-4567" style="padding: 0.75rem; border-radius: 0.5rem;">
+              </div>
+              <div class="col-12">
+                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Message</label>
+                <textarea class="form-control" rows="5" placeholder="Tell us about your cleaning needs..." style="padding: 0.75rem; border-radius: 0.5rem;"></textarea>
+              </div>
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" style="padding: 0.875rem 3rem;">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

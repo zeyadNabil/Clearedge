@@ -1,0 +1,56 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light glass-navbar">
+  <div class="container-fluid">
+    <!-- Logo - Left -->
+    <a class="navbar-brand" href="#home" (click)="scrollToSection('home'); $event.preventDefault()">
+      <img src="assets/clearedge_logo.jpeg" alt="Clearedge Logo" height="100" class="d-inline-block align-top">
+    </a>
+
+    <!-- Toggler Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation - Center, Button - Right -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- Navigation Links - Centered -->
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link"
+             [class.active]="isActive('home')"
+             (click)="scrollToSection('home'); $event.preventDefault()"
+             style="cursor: pointer;">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [class.active]="isActive('services')"
+             (click)="scrollToSection('services'); $event.preventDefault()"
+             style="cursor: pointer;">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [class.active]="isActive('about')"
+             (click)="scrollToSection('about'); $event.preventDefault()"
+             style="cursor: pointer;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [class.active]="isActive('testimonials')"
+             (click)="scrollToSection('testimonials'); $event.preventDefault()"
+             style="cursor: pointer;">Testimonials</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             [class.active]="isActive('contact')"
+             (click)="scrollToSection('contact'); $event.preventDefault()"
+             style="cursor: pointer;">Contact</a>
+        </li>
+      </ul>
+
+      <!-- CTA Button - Right -->
+      <div class="d-flex">
+        <button class="btn btn-accent" (click)="scrollToSection('contact'); $event.preventDefault()">Get Quote</button>
+      </div>
+    </div>
+  </div>
+</nav>
