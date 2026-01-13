@@ -119,6 +119,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   isActive(sectionId: string): boolean {
+    // Check for specific routes first
     if (sectionId === 'our-services') {
       return this.currentRoute === '/our-services';
     }
@@ -128,6 +129,23 @@ export class NavbarComponent implements OnInit, OnDestroy {
     if (this.currentRoute === '/our-services') {
       return sectionId === 'services';
     }
-    return this.activeSection === sectionId;
+    if (sectionId === 'safety') {
+      return this.currentRoute === '/safety';
+    }
+    if (sectionId === 'clients') {
+      return this.currentRoute === '/clients';
+    }
+    if (sectionId === 'careers') {
+      return this.currentRoute === '/careers';
+    }
+    if (sectionId === 'contact' || sectionId === 'contact-us') {
+      return this.currentRoute === '/contact-us';
+    }
+    // For 'home', only show as active if we're actually on the homepage
+    if (sectionId === 'home') {
+      return this.currentRoute === '/' || this.currentRoute === '/home';
+    }
+    // For other sections (used on homepage only), check activeSection
+    return (this.currentRoute === '/' || this.currentRoute === '/home') && this.activeSection === sectionId;
   }
 }

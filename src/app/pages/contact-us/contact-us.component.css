@@ -1,0 +1,29 @@
+.breadcrumb {
+  font-size: 0.95rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.breadcrumb-item a {
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+  opacity: 0.8;
+  text-decoration: underline !important;
+}
+
+.form-control {
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(70, 171, 131, 0.25);
+}

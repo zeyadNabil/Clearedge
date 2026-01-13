@@ -133,7 +133,7 @@
   border-radius: 0.125rem;
 }
 
-/* Dropdown Toggle Arrow for WHY AHI? */
+/* Dropdown Toggle Arrow for WHY Clearedge? */
 .nav-item.dropdown .nav-link.dropdown-toggle::after {
   content: '';
   display: inline-block !important;

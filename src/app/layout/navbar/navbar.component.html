@@ -68,7 +68,7 @@
             WHY US?
           </a>
           <ul class="dropdown-menu" aria-labelledby="whyUsDropdown">
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">About AHI</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">About Clearedge</a></li>
             <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Quality Control</a></li>
             <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">CIMS Standards</a></li>
             <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Leadership</a></li>
@@ -79,8 +79,8 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             routerLink="/"
-             (click)="scrollToSection('safety'); $event.preventDefault()"
+             routerLink="/safety"
+             [class.active]="isActive('safety')"
              style="cursor: pointer;">SAFETY</a>
         </li>
         <li class="nav-item">
@@ -91,28 +91,27 @@
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             routerLink="/"
-             (click)="scrollToSection('clients'); $event.preventDefault()"
+             routerLink="/clients"
+             [class.active]="isActive('clients')"
              style="cursor: pointer;">CLIENTS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             routerLink="/"
-             (click)="scrollToSection('careers'); $event.preventDefault()"
+             routerLink="/careers"
+             [class.active]="isActive('careers')"
              style="cursor: pointer;">CAREERS</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             routerLink="/"
-             [class.active]="isActive('contact')"
-             (click)="scrollToSection('contact'); $event.preventDefault()"
+             routerLink="/contact-us"
+             [class.active]="isActive('contact') || isActive('contact-us')"
              style="cursor: pointer;">CONTACT US</a>
         </li>
       </ul>
 
       <!-- CTA Button - Right -->
       <div class="d-flex">
-        <button class="btn btn-accent" routerLink="/" (click)="scrollToSection('contact'); $event.preventDefault()">Get Quote</button>
+        <button class="btn btn-accent" routerLink="/contact-us">Get Quote</button>
       </div>
     </div>
   </div>
