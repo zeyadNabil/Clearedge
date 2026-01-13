@@ -1,30 +1,97 @@
 import { Component, OnInit, OnDestroy, HostListener, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
+import { ServiceDataService, ServiceDetail } from '../../services/service-data.service';
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
   encapsulation: ViewEncapsulation.None
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   activeSection: string = 'home';
+  currentRoute: string = '';
+  services: ServiceDetail[] = [];
+  currentServiceSlug: string = '';
+  isScrolled: boolean = false;
+  isMobile: boolean = false;
+  private resizeListener: () => void;
+
+  constructor(
+    private router: Router,
+    private serviceDataService: ServiceDataService
+  ) {
+    // Bind the resize listener so we can remove it later
+    this.resizeListener = () => this.checkMobile();
+  }
 
   ngOnInit() {
+    this.services = this.serviceDataService.getAllServices();
+    this.currentRoute = this.router.url;
+    this.updateCurrentService();
     this.updateActiveSection();
+    this.checkMobile();
+    this.checkScroll();
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.currentRoute = this.router.url;
+        this.updateCurrentService();
+        this.updateActiveSection();
+        this.checkScroll();
+      });
+
+    // Listen for window resize to update mobile state
+    window.addEventListener('resize', this.resizeListener);
+  }
+
+  checkMobile() {
+    // Bootstrap's lg breakpoint is 992px, so burger menu appears below that
+    this.isMobile = window.innerWidth < 992;
+    this.checkScroll(); // Re-check scroll state when mobile state changes
+  }
+
+  checkScroll() {
+    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    // On mobile, always show background. On desktop, show background after scroll
+    this.isScrolled = this.isMobile || scrollPosition > 50;
+  }
+
+  updateCurrentService() {
+    if (this.currentRoute.startsWith('/services/')) {
+      const slug = this.currentRoute.replace('/services/', '');
+      this.currentServiceSlug = slug;
+    } else {
+      this.currentServiceSlug = '';
+    }
+  }
+
+  isServiceActive(slug: string): boolean {
+    return this.currentServiceSlug === slug;
   }
 
   ngOnDestroy() {
-    // Cleanup if needed
+    // Remove event listener
+    window.removeEventListener('resize', this.resizeListener);
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.updateActiveSection();
+    this.checkScroll();
+    if (this.currentRoute === '/' || this.currentRoute === '/home') {
+      this.updateActiveSection();
+    }
   }
 
   updateActiveSection() {
+    // Only update section if on homepage
+    if (this.currentRoute !== '/' && this.currentRoute !== '/home') {
+      return;
+    }
+
     const sections = ['home', 'services', 'about', 'testimonials', 'contact'];
     const scrollPosition = window.scrollY + 120; // Offset for fixed navbar
 
@@ -42,14 +109,25 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   scrollToSection(sectionId: string) {
-    this.activeSection = sectionId;
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (this.currentRoute === '/' || this.currentRoute === '/home') {
+      this.activeSection = sectionId;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
 
   isActive(sectionId: string): boolean {
+    if (sectionId === 'our-services') {
+      return this.currentRoute === '/our-services';
+    }
+    if (this.currentRoute.startsWith('/services/')) {
+      return sectionId === 'services';
+    }
+    if (this.currentRoute === '/our-services') {
+      return sectionId === 'services';
+    }
     return this.activeSection === sectionId;
   }
 }

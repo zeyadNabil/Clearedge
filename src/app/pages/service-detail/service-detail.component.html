@@ -1,0 +1,314 @@
+<!-- Hero Section with Image and Overlay -->
+@if (service) {
+  <section class="hero-section" style="position: relative; min-height: 60vh; display: flex; align-items: center; overflow: hidden; padding-top: 9rem;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ service.heroImageUrl }}'); background-size: cover; background-position: center; filter: blur(3px);"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.85) 0%, rgba(38, 103, 167, 0.85) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="display-3 fw-bold mb-4" style="font-size: 4rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">{{ service.title }}</h1>
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb justify-content-center" style="background: transparent; margin-bottom: 0; padding: 0;">
+              <li class="breadcrumb-item">
+                <a routerLink="/" style="color: white; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page" style="color: rgba(255,255,255,0.9); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                {{ service.title }}
+              </li>
+            </ol>
+          </nav>
+          <p class="lead mb-4" style="font-size: 1.5rem; color: rgba(255,255,255,0.95); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">{{ service.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+@if (service) {
+  <!-- Main Heading Section -->
+  <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 3rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto fade-in" appScrollAnimation>
+          <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+            {{ service.mainHeading }}
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto;">
+            {{ service.mainDescription }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Items Grid Section -->
+  <section class="section" style="background: linear-gradient(180deg, rgba(70, 171, 131, 0.05) 0%, rgba(38, 103, 167, 0.05) 100%); padding-top: 3rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="fade-in" appScrollAnimation>
+        <h2 class="section-title text-center mb-5" style="color: var(--primary-color); font-size: 2rem;">
+          {{ service.title }} from AHI
+        </h2>
+      </div>
+      <div class="row g-4 mt-2">
+        @for (item of service.serviceItems; track item.title; let i = $index) {
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm fade-in"
+                 [class.fade-in-delay-1]="i % 3 === 0"
+                 [class.fade-in-delay-2]="i % 3 === 1"
+                 [class.fade-in-delay-3]="i % 3 === 2"
+                 appScrollAnimation
+                 style="transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 0.5rem; overflow: hidden;">
+              <!-- Service Item Image -->
+              <div style="height: 200px; background-image: url('{{ item.imageUrl }}'); background-size: cover; background-position: center; position: relative;">
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.3) 0%, rgba(38, 103, 167, 0.3) 100%);"></div>
+              </div>
+              <div class="card-body" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 1.5rem;">
+                <h5 class="card-title" style="color: white; font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 600;">{{ item.title }}</h5>
+                <p class="card-text" style="color: rgba(255,255,255,0.9); font-size: 0.95rem; margin: 0;">{{ item.description }}</p>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- CIMS Certification Section (Assisted Living Only) -->
+  @if (isAssistedLivingService()) {
+    <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto fade-in" appScrollAnimation>
+            <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+              Clean Industry Management Standard Certified with Honors
+            </h2>
+            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto 3rem;">
+              CIMS is the first comprehensive management and operations standard for cleaning organizations. Administered by the ISSA and the American Institute for Cleaning Sciences, CIMS is designed to help building service contractors and in-house service providers develop quality, customer-centered organizations.
+            </p>
+
+            <div class="mb-4">
+              <h3 style="color: var(--primary-color); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
+                The five principals that have proven to be the hallmarks of well-managed, successful cleaning operations are:
+              </h3>
+              <div class="row g-3 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                    <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
+                    <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Quality Systems</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                    <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
+                    <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Human Resources</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                    <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
+                    <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Management Commitment</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                    <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
+                    <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Service Delivery</span>
+                  </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                    <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
+                    <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Health, Safety, and Environment Stewardship</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team Photo -->
+            <div class="text-center mb-4" style="margin: 3rem 0;">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80" alt="AHI Team Members" style="width: 100%; max-width: 800px; height: 400px; object-fit: cover; margin: 0 auto; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);">
+            </div>
+
+            <!-- Certification Logos -->
+            <div class="row justify-content-center align-items-center" style="margin-top: 3rem;">
+              <div class="col-md-6 text-center mb-3">
+                <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);">
+                  <div style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">ISSA CIMS</div>
+                  <div style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary-color) 0%, #dc3545 100%); margin: 0 auto; border-radius: 2px;"></div>
+                </div>
+              </div>
+              <div class="col-md-6 text-center mb-3">
+                <div style="padding: 2rem; background: white; border-radius: 1rem; box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);">
+                  <div style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">ISSA CIMS</div>
+                  <div style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%); margin: 0 auto 0.5rem; border-radius: 2px;"></div>
+                  <div style="color: var(--accent-color); font-size: 1rem; font-weight: 600;">GB CERTIFIED</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Benefits Section (if available) -->
+  @if (service.benefits && service.benefits.length > 0) {
+    <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="fade-in" appScrollAnimation>
+          <h2 class="section-title text-center mb-5" style="color: var(--primary-color); font-size: 2rem;">
+            Benefits of {{ service.title }}
+          </h2>
+        </div>
+        <div class="row g-4">
+          @for (benefit of service.benefits; track $index; let i = $index) {
+            <div class="col-md-6 col-lg-4">
+            <div class="card h-100 border-0 shadow-sm fade-in"
+                 [class.fade-in-delay-1]="i % 3 === 0"
+                 [class.fade-in-delay-2]="i % 3 === 1"
+                 [class.fade-in-delay-3]="i % 3 === 2"
+                 appScrollAnimation
+                 style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); color: white; border-radius: 1rem; padding: 2rem; text-align: center;">
+              @if (typeof benefit === 'object' && benefit.icon) {
+                <i [class]="benefit.icon" style="font-size: 2.5rem; margin-bottom: 1rem; color: white;"></i>
+                <h5 style="color: white; font-size: 1.25rem; margin: 0;">{{ benefit.name }}</h5>
+              } @else {
+                <i class="fas fa-check-circle" style="font-size: 2.5rem; margin-bottom: 1rem; color: white;"></i>
+                <h5 style="color: white; font-size: 1.25rem; margin: 0;">{{ benefit }}</h5>
+              }
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Patient and Staff Safety Section (Medical Healthcare Only) -->
+  @if (isMedicalHealthcareService()) {
+    <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4 mb-lg-0 fade-in" appScrollAnimation>
+            <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80" alt="Cleaning Supplies" style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);">
+          </div>
+          <div class="col-lg-7 fade-in" appScrollAnimation>
+            <h2 class="section-title mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+              Ensuring Patient and Staff Safety
+            </h2>
+            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">
+              In today's healthcare environment, infections affect millions of people annually, resulting in billions of dollars in lost work time each year in the US. Yet, one third of those cases are considered preventable if proper infection control procedures are in place.
+            </p>
+            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 0;">
+              AHI's cleaning program that focuses on hygienic cleaning can help reduce the spread of infectious disease.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Increase Sales and Customer Satisfaction Section (Retail Facility Only) -->
+  @if (isRetailFacilityService()) {
+    <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10 fade-in" appScrollAnimation>
+            <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+              Increase Sales and Customer Satisfaction
+            </h2>
+            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; margin-bottom: 1.5rem;">
+              A retail stores cleanliness may not be what the customer remembers on a shopping trip, but the appearance of a store subconsciously tells the patron how much the owner cares about the business.
+            </p>
+            <p style="font-size: 1.125rem; color: var(--text-dark); line-height: 1.8; text-align: center; margin-bottom: 0;">
+              Reassure your customers that you care about both the stores presentation and their shopping experience. Contact AHI Facility Services today for a free site survey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Customizing Services Section (Facility Types) -->
+  @if (service.facilityTypes && service.facilityTypes.length > 0 && !isAssistedLivingService() && !isMedicalHealthcareService() && !isRetailFacilityService()) {
+    <section class="section" style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%); padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="fade-in" appScrollAnimation>
+          <h2 class="section-title text-center mb-5" style="color: var(--primary-color); font-size: 2rem;">
+            Customizing Our Services To
+          </h2>
+        </div>
+        <div class="row g-4">
+          @for (facility of service.facilityTypes; track facility.name; let i = $index) {
+            <div class="col-md-6 col-lg-4">
+              <div class="card h-100 border-0 shadow-sm fade-in"
+                   [class.fade-in-delay-1]="i % 3 === 0"
+                   [class.fade-in-delay-2]="i % 3 === 1"
+                   [class.fade-in-delay-3]="i % 3 === 2"
+                   appScrollAnimation
+                   style="background: white; border-radius: 1rem; padding: 2rem; text-align: center; transition: transform 0.3s ease;">
+                <div style="width: 80px; height: 80px; margin: 0 auto 1rem; background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                  <i [class]="facility.icon"></i>
+                </div>
+                <h5 style="color: var(--text-dark); font-size: 1.1rem; margin: 0;">{{ facility.name }}</h5>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Affiliations Section -->
+  @if (service.affiliations && service.affiliations.length > 0) {
+    <section class="section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="fade-in" appScrollAnimation>
+          <h2 class="section-title text-center mb-5" style="color: var(--primary-color); font-size: 2rem;">
+            Our Affiliations
+          </h2>
+        </div>
+        <div class="row g-4 justify-content-center">
+          @for (affiliation of service.affiliations; track affiliation; let i = $index) {
+            <div class="col-md-6 col-lg-3">
+              <div class="card h-100 border-0 shadow-sm fade-in"
+                   [class.fade-in-delay-1]="i % 4 === 0"
+                   [class.fade-in-delay-2]="i % 4 === 1"
+                   [class.fade-in-delay-3]="i % 4 === 2"
+                   appScrollAnimation
+                   style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); border-radius: 1rem; padding: 2rem; text-align: center; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+                <div>
+                  <i class="fas fa-award" style="font-size: 3rem; margin-bottom: 0.5rem; opacity: 0.8; color: var(--accent-color);"></i>
+                  <h5 style="color: white; font-size: 1.25rem; margin: 0; font-weight: 600;">{{ affiliation }}</h5>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <!-- Call to Action Section -->
+  <section class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center fade-in" appScrollAnimation>
+          <h2 class="mb-4" style="font-size: 2.5rem; font-weight: bold;">Want to talk?</h2>
+          <div class="mb-4">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Please call now: (214) 741-3714</h3>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Toll Free: (800) 472-5749</p>
+          </div>
+          <p style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 2rem;">
+            Need a special cleaning service?<br>
+            We are happy to fulfill every request in order to exceed your expectations.
+          </p>
+          <a routerLink="/" (click)="scrollToSection('contact'); $event.preventDefault()" class="btn btn-accent btn-lg" style="padding: 1rem 3rem; font-size: 1.125rem;">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+}

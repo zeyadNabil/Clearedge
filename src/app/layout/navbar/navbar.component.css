@@ -1,11 +1,38 @@
 /* Navbar Component Styles */
 .navbar {
-  padding: 1rem 0;
-  min-height: 7rem;
+  padding: 0.75rem 0;
+  min-height: 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+.navbar .container-fluid {
+  position: relative;
+  z-index: 10000;
 }
 
 /* Glassmorphism Effect for Navbar */
 .glass-navbar {
+  background: transparent;
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  border-bottom: none;
+  box-shadow: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10000;
+  transition: all 0.3s ease;
+}
+
+/* Navbar with background when scrolled */
+.glass-navbar.scrolled {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   backdrop-filter: blur(1.5rem) saturate(180%);
   -webkit-backdrop-filter: blur(1.5rem) saturate(180%);
@@ -22,6 +49,13 @@
   max-height: 6.25rem;
   width: auto;
   height: auto;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  transition: filter 0.3s ease;
+}
+
+/* Remove shadow when scrolled for better visibility */
+.glass-navbar.scrolled .navbar-brand img {
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .navbar-toggler {
@@ -38,7 +72,7 @@
 
 /* Navigation Links Styles */
 .navbar-nav .nav-link {
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 1) !important;
   font-weight: 500;
   font-size: 1rem;
   padding: 0.5rem 1.25rem !important;
@@ -46,6 +80,30 @@
   border-radius: 0.5rem;
   transition: all 0.3s ease;
   position: relative;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* When navbar has background, reduce text shadow */
+.glass-navbar.scrolled .navbar-nav .nav-link {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Dropdown Toggle Arrow */
+.navbar-nav .nav-link.dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  margin-left: 0.5rem;
+  vertical-align: 0.255em;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  color: rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
 }
 
 /* Hover Effect */
@@ -75,11 +133,167 @@
   border-radius: 0.125rem;
 }
 
+/* Dropdown Toggle Arrow for WHY AHI? */
+.nav-item.dropdown .nav-link.dropdown-toggle::after {
+  content: '';
+  display: inline-block !important;
+  margin-left: 0.5rem;
+  vertical-align: 0.255em;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  color: rgba(255, 255, 255, 1);
+  transition: transform 0.3s ease;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  background-color: transparent !important;
+  transform: none !important;
+  left: auto !important;
+}
+
+.nav-item.dropdown .nav-link.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg) !important;
+}
+
+/* Dropdown Toggle Arrow - Must come after active state to override */
+.navbar-nav .nav-link.dropdown-toggle::after {
+  content: '';
+  display: inline-block !important;
+  margin-left: 0.5rem;
+  vertical-align: 0.255em;
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  color: rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease;
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  background-color: transparent !important;
+  transform: none !important;
+  left: auto !important;
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active::after {
+  color: white !important;
+  transform: none !important;
+}
+
+.navbar-nav .nav-link.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg) !important;
+}
+
+.navbar-nav .nav-link.dropdown-toggle.active[aria-expanded="true"]::after {
+  transform: rotate(180deg) !important;
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu {
+  background: white;
+  border: none;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 10001 !important;
+  position: absolute !important;
+}
+
+/* Remove margin-top from first dropdown item */
+.dropdown-menu > li:first-child > .dropdown-item,
+.dropdown-menu > .dropdown-item:first-child {
+  margin-top: 0;
+}
+
+/* Custom scrollbar for dropdown */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 4px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #3a9570;
+  cursor: pointer;
+}
+
+.dropdown-item {
+  color: var(--text-dark);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(70, 171, 131, 0.1);
+  color: var(--primary-color);
+}
+
+.dropdown-item.active {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* Ensure dropdown stays on top */
+.nav-item.dropdown {
+  position: relative;
+  z-index: 10000;
+}
+
+.nav-item.dropdown .dropdown-menu {
+  z-index: 10001 !important;
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  margin-top: 0.5rem !important;
+  min-width: 200px;
+}
+
+/* Ensure Services dropdown aligns properly */
+#servicesDropdown + .dropdown-menu {
+  left: 0 !important;
+}
+
+/* Ensure WHY US dropdown aligns properly */
+#whyUsDropdown + .dropdown-menu {
+  left: 0 !important;
+}
+
+/* Ensure navbar nav has proper stacking context */
+.navbar-nav {
+  position: relative;
+  z-index: 10000;
+}
+
 /* Mobile Responsive */
 @media (max-width: 991.98px) {
   .navbar {
     min-height: auto;
     padding: 0.5rem 0;
+  }
+
+  /* Always show background on mobile */
+  .glass-navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%) !important;
+    backdrop-filter: blur(1.5rem) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(1.5rem) saturate(180%) !important;
+    border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15), inset 0 0 0 0.0625rem rgba(255, 255, 255, 0.1) !important;
   }
 
   .navbar-brand {
@@ -90,6 +304,7 @@
   .navbar-brand img {
     max-height: 3rem;
     height: auto;
+    filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.2)) !important;
   }
 
   .navbar .container-fluid {
@@ -100,11 +315,14 @@
   .navbar-nav {
     text-align: center;
     margin-top: 1rem;
+    position: relative;
+    z-index: 10002; /* Higher z-index for mobile nav */
   }
 
   .navbar-nav .nav-link {
     margin: 0.25rem 0;
     padding: 0.5rem 1rem !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
   }
 
   .navbar-nav .nav-link.active {
@@ -114,6 +332,31 @@
 
   .navbar-nav .nav-link.active::after {
     display: none;
+  }
+
+  /* Dropdown styling for mobile */
+  .nav-item.dropdown {
+    position: relative;
+    z-index: 10003; /* Higher z-index for dropdown items in mobile */
+  }
+
+  .nav-item.dropdown .dropdown-menu {
+    position: static !important; /* Change to static for mobile to stack vertically */
+    z-index: 10004 !important;
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.5rem !important;
+    width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Ensure dropdown items are visible and don't overlap */
+  .dropdown-item {
+    padding: 0.75rem 1.5rem !important;
+    white-space: normal !important; /* Allow text wrapping on mobile */
   }
 
   .d-flex {

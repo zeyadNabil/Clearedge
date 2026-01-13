@@ -1,8 +1,8 @@
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light glass-navbar">
+<nav class="navbar navbar-expand-lg navbar-light glass-navbar" [class.scrolled]="isScrolled">
   <div class="container-fluid">
     <!-- Logo - Left -->
-    <a class="navbar-brand" href="#home" (click)="scrollToSection('home'); $event.preventDefault()">
+    <a class="navbar-brand" routerLink="/" (click)="scrollToSection('home'); $event.preventDefault()">
       <img src="assets/clearedge_logo.jpeg" alt="Clearedge Logo" height="100" class="d-inline-block align-top">
     </a>
 
@@ -17,39 +17,102 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
           <a class="nav-link"
+             routerLink="/"
              [class.active]="isActive('home')"
              (click)="scrollToSection('home'); $event.preventDefault()"
-             style="cursor: pointer;">Home</a>
+             style="cursor: pointer;">HOME</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link"
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
              [class.active]="isActive('services')"
-             (click)="scrollToSection('services'); $event.preventDefault()"
-             style="cursor: pointer;">Services</a>
+             href="#"
+             id="servicesDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             style="cursor: pointer;">
+            SERVICES
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+            <li>
+              <a class="dropdown-item"
+                 [class.active]="isActive('our-services')"
+                 routerLink="/our-services"
+                 routerLinkActive="active"
+                 style="cursor: pointer; font-weight: 600;">
+                Our Services
+              </a>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            @for (service of services; track service.slug) {
+              <li>
+                <a class="dropdown-item"
+                   [class.active]="isServiceActive(service.slug)"
+                   [routerLink]="['/services', service.slug]"
+                   routerLinkActive="active"
+                   style="cursor: pointer;">
+                  {{ service.title }}
+                </a>
+              </li>
+            }
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             id="whyUsDropdown"
+             role="button"
+             data-bs-toggle="dropdown"
+             aria-expanded="false"
+             style="cursor: pointer;">
+            WHY US?
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="whyUsDropdown">
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">About AHI</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Quality Control</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">CIMS Standards</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Leadership</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Supplier Diversity</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Industry Organizations</a></li>
+            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Acquisitions</a></li>
+          </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             [class.active]="isActive('about')"
-             (click)="scrollToSection('about'); $event.preventDefault()"
-             style="cursor: pointer;">About</a>
+             routerLink="/"
+             (click)="scrollToSection('safety'); $event.preventDefault()"
+             style="cursor: pointer;">SAFETY</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
-             [class.active]="isActive('testimonials')"
-             (click)="scrollToSection('testimonials'); $event.preventDefault()"
-             style="cursor: pointer;">Testimonials</a>
+             routerLink="/"
+             (click)="scrollToSection('blog'); $event.preventDefault()"
+             style="cursor: pointer;">BLOG</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"
+             routerLink="/"
+             (click)="scrollToSection('clients'); $event.preventDefault()"
+             style="cursor: pointer;">CLIENTS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/"
+             (click)="scrollToSection('careers'); $event.preventDefault()"
+             style="cursor: pointer;">CAREERS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/"
              [class.active]="isActive('contact')"
              (click)="scrollToSection('contact'); $event.preventDefault()"
-             style="cursor: pointer;">Contact</a>
+             style="cursor: pointer;">CONTACT US</a>
         </li>
       </ul>
 
       <!-- CTA Button - Right -->
       <div class="d-flex">
-        <button class="btn btn-accent" (click)="scrollToSection('contact'); $event.preventDefault()">Get Quote</button>
+        <button class="btn btn-accent" routerLink="/" (click)="scrollToSection('contact'); $event.preventDefault()">Get Quote</button>
       </div>
     </div>
   </div>
