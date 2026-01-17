@@ -1,0 +1,272 @@
+<!-- Hero Section with Image and Overlay -->
+@if (page) {
+  <section class="hero-section" [class.leadership-hero]="page.slug === 'leadership'" style="position: relative; min-height: 60vh; display: flex; align-items: center; overflow: hidden; padding-top: 9rem;">
+    @if (page.slug !== 'leadership') {
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ page.heroImageUrl }}'); background-size: cover; background-position: center; filter: blur(3px);"></div>
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.85) 0%, rgba(38, 103, 167, 0.85) 100%);"></div>
+    }
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="display-3 fw-bold mb-4" style="font-size: 4rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">{{ page.title }}</h1>
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb justify-content-center" style="background: transparent; margin-bottom: 0; padding: 0;">
+              <li class="breadcrumb-item">
+                <a routerLink="/" style="color: white; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page" style="color: rgba(255,255,255,0.9); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                {{ page.title }}
+              </li>
+            </ol>
+          </nav>
+          <p class="lead mb-4" style="font-size: 1.5rem; color: rgba(255,255,255,0.95); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">{{ page.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+@if (page) {
+  <!-- Content Sections -->
+  @for (section of page.sections; track section.title; let i = $index) {
+    @if ((section.displayType === 'card' || section.displayType === 'horizontal-card') && (i === 0 || (page.sections[i - 1].displayType !== 'card' && page.sections[i - 1].displayType !== 'horizontal-card'))) {
+      <!-- Card Section - Start -->
+      <section class="section" [class.acquisitions-section]="section.icon === 'business-growth'" [class.leadership-section]="section.imageUrl && page.slug === 'leadership'" [class.about-cards-section]="page.slug === 'about-ahi' && !section.imageUrl && !section.icon" [class.cims-cards-section]="page.slug === 'cims-standards'" [style.background]="page.slug === 'cims-standards' ? 'linear-gradient(135deg, rgba(70, 171, 131, 0.12) 0%, rgba(38, 103, 167, 0.12) 100%)' : (page.slug === 'leadership' ? 'white' : (page.slug === 'industry-organizations' ? 'linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%)' : 'white'))" style="padding-top: 3rem; padding-bottom: 3rem; position: relative;">
+        @if (page.slug === 'cims-standards') {
+          <div class="wave-top">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path d="M0,0 C150,100 350,0 600,50 C850,100 1050,0 1200,50 L1200,0 L0,0 Z" fill="white"/>
+            </svg>
+          </div>
+        }
+        <div class="container">
+          @if (section.preCardText && page.slug === 'cims-standards') {
+            <div class="row mb-4">
+              <div class="col-12 text-center">
+                <h4 class="cims-pre-card-text fade-in" appScrollAnimation>{{ section.preCardText }}</h4>
+              </div>
+            </div>
+          }
+          <div class="row justify-content-center" [class.g-2]="section.imageUrl" [class.g-4]="!section.imageUrl && page.slug !== 'cims-standards'" [class.g-5]="page.slug === 'cims-standards'" [style.display]="page.slug === 'cims-standards' ? 'flex' : ''" [style.justify-content]="page.slug === 'cims-standards' ? 'space-around' : ''" [style.flex-wrap]="page.slug === 'cims-standards' ? 'wrap' : ''">
+            @for (cardSection of page.sections; track cardSection.title; let j = $index; let cardIndex = $index) {
+              @if (j >= i && (cardSection.displayType === 'card' || cardSection.displayType === 'horizontal-card') && (j === i || page.sections[j - 1].displayType === 'card' || page.sections[j - 1].displayType === 'horizontal-card')) {
+                @if (cardSection.displayType === 'horizontal-card') {
+                  <!-- Horizontal card style (image on left, content on right) -->
+                  <div [class]="page.slug === 'industry-organizations' ? 'col-lg-12 col-md-12 mb-4' : 'col-lg-6 col-md-12 mb-4'">
+                    <div class="horizontal-card fade-in" 
+                         [class.fade-in-delay-1]="(j - i) % 3 === 0"
+                         [class.fade-in-delay-2]="(j - i) % 3 === 1"
+                         [class.fade-in-delay-3]="(j - i) % 3 === 2"
+                         appScrollAnimation>
+                      <div class="horizontal-card-image">
+                        <img [src]="cardSection.imageUrl" [alt]="cardSection.title || 'Organization logo'">
+                      </div>
+                      <div class="horizontal-card-content">
+                        @if (cardSection.title) {
+                          <h4 class="horizontal-card-title">{{ cardSection.title }}</h4>
+                        }
+                        @if (cardSection.content) {
+                          <p class="horizontal-card-text">{{ cardSection.content }}</p>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                } @else if (cardSection.imageUrl) {
+                  <!-- Leadership card style (with images) -->
+                  <div class="col-lg-5 col-md-6 mb-5">
+                    <div class="leadership-card" 
+                         [class.first-card]="page.slug === 'leadership' && (j - i) === 0"
+                         [class.second-card]="page.slug === 'leadership' && (j - i) === 1"
+                         [class.fade-in-left]="page.slug === 'leadership' && (j - i) === 0"
+                         [class.fade-in-right]="page.slug === 'leadership' && (j - i) === 1"
+                         [class.fade-in-delay-3]="(j - i) === 2"
+                         appScrollAnimation>
+                      
+                      <div class="leadership-image-circle">
+                        <img [src]="cardSection.imageUrl" [alt]="cardSection.title || 'Leader image'">
+                      </div>
+                      
+                      <div class="leadership-info">
+                        @if (cardSection.title) {
+                          <h3 class="leader-name">
+                            {{ cardSection.title }}
+                          </h3>
+                        }
+                        @if (cardSection.phone && page.slug === 'leadership') {
+                          <a [href]="'tel:' + cardSection.phone" class="leader-phone">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                              <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                            </svg>
+                            {{ cardSection.phone }}
+                          </a>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                } @else {
+                  <!-- Standard card style (with icons) -->
+                  <div [class]="cardSection.icon === 'business-growth' ? 'col-lg-8 col-md-10 mx-auto mb-5' : (page.slug === 'about-ahi' ? 'col-lg-6 col-md-6 mb-5' : (page.slug === 'cims-standards' ? 'col-lg-5 col-md-6 mb-5' : 'col-lg-4 col-md-6 mb-5'))">
+                    <div class="info-card" 
+                         [class.fade-in]="page.slug !== 'about-ahi' && page.slug !== 'cims-standards'"
+                         [class.fade-in-up]="page.slug === 'about-ahi'"
+                         [class.fade-in-left]="page.slug === 'cims-standards' && (j - i) === 0"
+                         [class.fade-in-right]="page.slug === 'cims-standards' && (j - i) === 1"
+                         [class.fade-in-delay-1]="(j - i) === 0"
+                         [class.fade-in-delay-2]="(j - i) === 1"
+                         [class.fade-in-delay-3]="(j - i) === 2"
+                         [class.acquisitions-card]="cardSection.icon === 'business-growth'"
+                         [attr.data-card-index]="(j - i)"
+                         appScrollAnimation>
+                      @if (cardSection.icon === 'business-growth') {
+                        <!-- Acquisitions card with icon on left -->
+                        <div class="acquisitions-content">
+                          <div class="acquisitions-icon">
+                            <img src="assets/images/glowingArrow.png" alt="Business Growth">
+                          </div>
+                          <div class="acquisitions-text">
+                            @if (cardSection.title) {
+                              <h4 class="card-title">
+                                {{ cardSection.title }}
+                              </h4>
+                            }
+                            <div class="card-text" [innerHTML]="cardSection.content">
+                            </div>
+                            <div class="mt-4">
+                              <a href="tel:800-472-5749" class="acquisitions-btn phone-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                </svg>
+                                800-472-5749
+                              </a>
+                              <a href="/contact-us" class="acquisitions-btn contact-btn">
+                                Contact Us
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      } @else {
+                        <!-- Standard card -->
+                        @if (page.slug === 'about-ahi' && cardSection.title) {
+                          <div class="about-card-title-badge">
+                            <h4>
+                              <!-- Eye icon -->
+                              <svg class="lamp-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                              </svg>
+                              {{ cardSection.title }}
+                            </h4>
+                          </div>
+                        }
+                        @if (page.slug !== 'about-ahi' && page.slug !== 'quality-control' && page.slug !== 'cims-standards') {
+                          <div class="card-header-wave">
+                            <svg class="wave-shape" viewBox="0 0 200 100" preserveAspectRatio="none">
+                              <path d="M0,0 L0,50 Q50,100 100,50 T200,50 L200,0 Z" fill="currentColor"/>
+                            </svg>
+                          </div>
+                        }
+                        <div class="card-body-content">
+                          @if (cardSection.title && page.slug !== 'about-ahi') {
+                            <h4 class="card-title">
+                              {{ cardSection.title }}
+                            </h4>
+                          }
+                          <div class="card-text" [class.cims-numbered-list]="page.slug === 'cims-standards' && (j - i) === 0" [innerHTML]="cardSection.content">
+                          </div>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                }
+              }
+            }
+          </div>
+        </div>
+      </section>
+    } @else if (section.displayType !== 'card' && section.displayType !== 'horizontal-card') {
+      <!-- Default Layout -->
+      <section class="section" [style.background]="page.slug === 'about-ahi' && i === 0 ? 'white' : (page.slug === 'quality-control' && (i === 0 || i === 2 || i === 4) ? 'white' : (page.slug === 'cims-standards' ? 'white' : 'linear-gradient(180deg, rgba(70, 171, 131, 0.08) 0%, rgba(38, 103, 167, 0.08) 100%)'))" style="padding-top: 4rem; padding-bottom: 4rem; position: relative;">
+        <div class="container">
+          @if (section.title && page.slug === 'about-ahi' && i === 0) {
+            <!-- Title row for first section on About page -->
+            <div class="row mb-5 fade-in" appScrollAnimation>
+              <div class="col-12 text-center">
+                @if (section.titleSize === 'h4') {
+                  <h4 class="mb-4" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h4>
+                } @else if (section.titleSize === 'h3') {
+                  <h3 class="section-title mb-4" style="color: var(--primary-color); font-size: 2rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h3>
+                } @else {
+                  <h2 class="section-title mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h2>
+                }
+                @if (section.subtitle) {
+                  <h4 class="mb-0" style="color: var(--text-light); font-size: 1.5rem; font-weight: 400; font-style: italic;">
+                    {{ section.subtitle }}
+                  </h4>
+                }
+              </div>
+            </div>
+          }
+          <div class="row align-items-center" [class.flex-row-reverse]="i % 2 !== 0" [class.g-5]="page.slug === 'about-ahi' && i === 0">
+            <!-- Text Content -->
+            <div [class]="section.imageUrl ? (page.slug === 'about-ahi' && i === 0 ? 'col-lg-7 mb-4 mb-lg-0' : 'col-lg-6 mb-4 mb-lg-0') : 'col-lg-8 col-md-10 mx-auto'" [class.fade-in]="!(page.slug === 'about-ahi' && i === 0) && !(page.slug === 'quality-control' && (i === 1 || i === 3))" [class.fade-in-left]="page.slug === 'about-ahi' && i === 0" [class.fade-in-right]="page.slug === 'quality-control' && (i === 1 || i === 3)" [style.text-align]="section.imageUrl ? 'left' : 'center'" appScrollAnimation>
+              @if (section.title && !(page.slug === 'about-ahi' && i === 0)) {
+                @if (section.titleSize === 'h4') {
+                  <h4 class="mb-4" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h4>
+                } @else if (section.titleSize === 'h3') {
+                  <h3 class="section-title mb-4" style="color: var(--primary-color); font-size: 2rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h3>
+                } @else {
+                  <h2 class="section-title mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+                    {{ section.title }}
+                  </h2>
+                }
+              }
+              <div style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; max-width: 900px; margin: 0 auto;" [innerHTML]="section.content">
+              </div>
+            </div>
+            
+            <!-- Image -->
+            @if (section.imageUrl) {
+              <div [class]="page.slug === 'about-ahi' && i === 0 ? 'col-lg-5 fade-in-right' : (page.slug === 'quality-control' && (i === 1 || i === 3) ? 'col-lg-6 fade-in-left' : 'col-lg-6 fade-in')" [class.fade-in-delay-2]="!(page.slug === 'about-ahi' && i === 0) && !(page.slug === 'quality-control' && (i === 1 || i === 3))" appScrollAnimation>
+                @if (section.additionalImages && section.additionalImages.length > 0) {
+                  <!-- Grid of 4 images (2x2) -->
+                  <div class="image-grid">
+                    <div class="grid-image">
+                      <img [src]="section.imageUrl" [alt]="section.title || page.title">
+                    </div>
+                    @for (img of section.additionalImages; track img; let idx = $index) {
+                      <div class="grid-image">
+                        <img [src]="img" [alt]="(section.title || page.title) + ' ' + (idx + 2)">
+                      </div>
+                    }
+                  </div>
+                } @else {
+                  <!-- Single image -->
+                  <div [style]="page.slug === 'about-ahi' && i === 0 ? 'position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.15);' : (page.slug === 'about-ahi' && i === 1 ? 'position: relative; border-radius: 0 80px 0 120px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);' : (page.slug === 'quality-control' ? 'position: relative; border-radius: 0 80px 0 120px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);' : 'position: relative; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);'))">
+                    <img [src]="section.imageUrl" [alt]="section.title || page.title" [style.border-radius]="page.slug === 'about-ahi' && i === 0 ? '0' : (page.slug === 'about-ahi' && i === 1 ? '0 80px 0 120px' : (page.slug === 'quality-control' ? '0 80px 0 120px' : ''))" style="width: 100%; height: auto; display: block;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.2) 0%, rgba(38, 103, 167, 0.2) 100%);"></div>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+        @if (page.slug !== 'about-ahi' && page.slug !== 'quality-control') {
+          <svg class="section-wave-bottom" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,100 600,50 T1200,50 L1200,100 L0,100 Z" fill="white"/>
+          </svg>
+        }
+      </section>
+    }
+  }
+}

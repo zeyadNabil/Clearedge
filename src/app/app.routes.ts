@@ -6,6 +6,7 @@ import { SafetyComponent } from './pages/safety/safety.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { CareersComponent } from './pages/careers/careers.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { WhyAhiDetailComponent } from './pages/why-ahi-detail/why-ahi-detail.component';
 
 export const routes: Routes = [
   {
@@ -28,6 +29,10 @@ export const routes: Routes = [
     path: 'services',
     redirectTo: 'our-services',
     pathMatch: 'full'
+  },
+  {
+    path: 'why-ahi/:slug',
+    component: WhyAhiDetailComponent
   },
   {
     path: 'safety',

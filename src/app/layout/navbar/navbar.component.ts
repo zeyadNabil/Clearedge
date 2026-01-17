@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { ServiceDataService, ServiceDetail } from '../../services/service-data.service';
+import { WhyAhiDataService, WhyAhiPage } from '../../services/why-ahi-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,14 +16,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
   activeSection: string = 'home';
   currentRoute: string = '';
   services: ServiceDetail[] = [];
+  whyAhiPages: WhyAhiPage[] = [];
   currentServiceSlug: string = '';
+  currentWhyAhiSlug: string = '';
   isScrolled: boolean = false;
   isMobile: boolean = false;
   private resizeListener: () => void;
 
   constructor(
     private router: Router,
-    private serviceDataService: ServiceDataService
+    private serviceDataService: ServiceDataService,
+    private whyAhiDataService: WhyAhiDataService
   ) {
     // Bind the resize listener so we can remove it later
     this.resizeListener = () => this.checkMobile();
@@ -30,8 +34,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.services = this.serviceDataService.getAllServices();
+    this.whyAhiPages = this.whyAhiDataService.getAllPages();
     this.currentRoute = this.router.url;
     this.updateCurrentService();
+    this.updateCurrentWhyAhi();
     this.updateActiveSection();
     this.checkMobile();
     this.checkScroll();
@@ -40,6 +46,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.currentRoute = this.router.url;
         this.updateCurrentService();
+        this.updateCurrentWhyAhi();
         this.updateActiveSection();
         this.checkScroll();
       });
@@ -69,8 +76,21 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
+  updateCurrentWhyAhi() {
+    if (this.currentRoute.startsWith('/why-ahi/')) {
+      const slug = this.currentRoute.replace('/why-ahi/', '');
+      this.currentWhyAhiSlug = slug;
+    } else {
+      this.currentWhyAhiSlug = '';
+    }
+  }
+
   isServiceActive(slug: string): boolean {
     return this.currentServiceSlug === slug;
+  }
+
+  isWhyAhiActive(slug: string): boolean {
+    return this.currentWhyAhiSlug === slug;
   }
 
   ngOnDestroy() {

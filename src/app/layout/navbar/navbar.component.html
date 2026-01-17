@@ -59,22 +59,27 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"
+             [class.active]="currentRoute.startsWith('/why-ahi/')"
              href="#"
-             id="whyUsDropdown"
+             id="whyAhiDropdown"
              role="button"
              data-bs-toggle="dropdown"
              aria-expanded="false"
              style="cursor: pointer;">
             WHY US?
           </a>
-          <ul class="dropdown-menu" aria-labelledby="whyUsDropdown">
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">About Clearedge</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Quality Control</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">CIMS Standards</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Leadership</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Supplier Diversity</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Industry Organizations</a></li>
-            <li><a class="dropdown-item" routerLink="/" (click)="scrollToSection('about'); $event.preventDefault()" style="cursor: pointer;">Acquisitions</a></li>
+          <ul class="dropdown-menu" aria-labelledby="whyAhiDropdown">
+            @for (page of whyAhiPages; track page.slug) {
+              <li>
+                <a class="dropdown-item"
+                   [class.active]="isWhyAhiActive(page.slug)"
+                   [routerLink]="['/why-ahi', page.slug]"
+                   routerLinkActive="active"
+                   style="cursor: pointer;">
+                  {{ page.title }}
+                </a>
+              </li>
+            }
           </ul>
         </li>
         <li class="nav-item">
