@@ -80,19 +80,22 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
       // Listen for click outside to close menu
       this.clickListener = (event: MouseEvent) => {
-        if (this.isMobile && this.isMenuOpen()) {
+        // Check if we're on mobile first
+        const isMobileNow = window.innerWidth < 992;
+        if (isMobileNow && this.isMenuOpen()) {
           const target = event.target as HTMLElement;
           const navbar = document.querySelector('.navbar');
           const toggler = document.querySelector('.navbar-toggler');
 
           // Check if click is outside navbar and not on toggler button
-          if (navbar && !navbar.contains(target) && !toggler?.contains(target)) {
+          if (navbar && !navbar.contains(target) && toggler && !toggler.contains(target)) {
             this.closeMobileMenu();
           }
         }
       };
 
-      document.addEventListener('click', this.clickListener);
+      // Use capture phase to ensure we catch the event early
+      document.addEventListener('click', this.clickListener, true);
     }, 100);
   }
 
@@ -138,7 +141,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
     // Remove event listeners
     window.removeEventListener('resize', this.resizeListener);
     if (this.clickListener) {
-      document.removeEventListener('click', this.clickListener);
+      document.removeEventListener('click', this.clickListener, true);
     }
   }
 
@@ -182,7 +185,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
 
-    const sections = ['home', 'services', 'about', 'testimonials', 'contact'];
+    const sections = ['home', 'about', 'testimonials', 'contact'];
     const scrollPosition = window.scrollY + 120; // Offset for fixed navbar
 
     for (const section of sections) {

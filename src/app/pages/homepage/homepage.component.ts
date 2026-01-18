@@ -1,36 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { ScrollAnimationDirective } from '../../scroll-animation.directive';
+import { ServiceDataService, ServiceDetail } from '../../services/service-data.service';
 
 @Component({
   selector: 'app-homepage',
-  imports: [CommonModule, ScrollAnimationDirective],
+  imports: [CommonModule, RouterModule, ScrollAnimationDirective],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
-export class HomepageComponent {
-  services = [
-    {
-      title: 'Commercial Cleaning',
-      description: 'Professional cleaning services for offices and commercial spaces',
-      icon: '🏢'
-    },
-    {
-      title: 'Green Cleaning',
-      description: 'Eco-friendly cleaning solutions for a healthier environment',
-      icon: '🌿'
-    },
-    {
-      title: 'Specialized Services',
-      description: 'Customized cleaning solutions for your specific needs',
-      icon: '✨'
-    },
-    {
-      title: 'Quality Assurance',
-      description: 'Certified professionals ensuring the highest standards',
-      icon: '✅'
-    }
-  ];
+export class HomepageComponent implements OnInit {
+  services: ServiceDetail[] = [];
 
   testimonials = [
     {
@@ -48,6 +29,24 @@ export class HomepageComponent {
       rating: 5
     }
   ];
+
+  constructor(
+    private serviceDataService: ServiceDataService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    // Get all services and show the first 6 for homepage
+    this.services = this.serviceDataService.getAllServices().slice(0, 6);
+  }
+
+  navigateToContact() {
+    this.router.navigate(['/contact-us']);
+  }
+
+  navigateToService(slug: string) {
+    this.router.navigate(['/services', slug]);
+  }
 
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);

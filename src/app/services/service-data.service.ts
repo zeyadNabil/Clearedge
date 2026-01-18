@@ -200,7 +200,7 @@ export class ServiceDataService {
       overview: 'Educational facilities require specialized cleaning protocols to maintain healthy learning environments.',
       mainHeading: 'Creating Healthy Learning Environments',
       mainDescription: 'Educational facilities require specialized cleaning protocols to maintain healthy learning environments. Our services are designed to support student health, safety, and academic success. We understand the unique challenges of maintaining cleanliness in high-traffic educational settings.',
-      heroImageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80',
+      heroImageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80',
       serviceItems: [
         { title: 'Classroom Cleaning', description: 'Daily cleaning and sanitization of classrooms and common areas', imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80' },
         { title: 'Gymnasium and Athletic Facility Maintenance', description: 'Comprehensive cleaning of gymnasiums, locker rooms, and athletic facilities', imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80' },

@@ -1,25 +1,26 @@
 <!-- Hero Section -->
-<section id="home" class="hero-section" style="padding-top: 9rem; padding-bottom: 4rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; min-height: 90vh; display: flex; align-items: center;">
-  <div class="container">
+<section id="home" class="hero-section" style="padding-top: 9rem; padding-bottom: 4rem; background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80') center/cover; opacity: 0.15;"></div>
+  <div class="container" style="position: relative; z-index: 2;">
     <div class="row align-items-center">
       <div class="col-lg-6 fade-in-left" appScrollAnimation>
-        <h1 class="display-3 fw-bold mb-4" style="font-size: 3.5rem;">Commercial Cleaning Professionals at Your Service</h1>
-        <p class="lead mb-4" style="font-size: 1.25rem; opacity: 0.9;">Meeting higher building standards with impeccable service, green cleaning, and over 50 years of excellence.</p>
-        <div class="d-flex gap-3 flex-wrap hero-buttons">
-          <button class="btn btn-accent btn-lg mb-5" (click)="scrollToSection('contact'); $event.preventDefault()">Get Started</button>
-          <button class="btn btn-outline-light btn-lg mb-5" (click)="scrollToSection('services'); $event.preventDefault()">Our Services</button>
+        <h1 class="display-3 fw-bold mb-4 animate-fade-in-up" style="font-size: 3.5rem; animation-delay: 0.2s;">Commercial Cleaning Professionals at Your Service</h1>
+        <p class="lead mb-4 animate-fade-in-up" style="font-size: 1.25rem; opacity: 0.9; animation-delay: 0.4s;">Meeting higher building standards with impeccable service, green cleaning, and over 50 years of excellence.</p>
+        <div class="d-flex gap-3 flex-wrap hero-buttons animate-fade-in-up" style="animation-delay: 0.6s;">
+          <button class="btn btn-accent btn-lg mb-5 animate-hover" (click)="navigateToContact()" style="transition: transform 0.3s ease, box-shadow 0.3s ease; min-width: 160px; font-size: 1rem;">Get Started</button>
+          <button class="btn btn-outline-light btn-lg mb-5 animate-hover" (click)="scrollToSection('services')" style="transition: transform 0.3s ease, box-shadow 0.3s ease; min-width: 160px; font-size: 1rem;">Our Services</button>
         </div>
       </div>
       <div class="col-lg-6 fade-in-right" appScrollAnimation>
         <div class="text-center">
-          <div style="background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(10px);">
+          <div style="background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(10px); animation: float 6s ease-in-out infinite;">
             <h3 class="mb-4">Why Choose Us?</h3>
             <ul class="list-unstyled text-start" style="font-size: 1.125rem;">
-              <li class="mb-3">✓ Impeccable Service</li>
-              <li class="mb-3">✓ Green Cleaning</li>
-              <li class="mb-3">✓ Supplier Diversity</li>
-              <li class="mb-3">✓ GB Honors Certified</li>
-              <li class="mb-3">✓ 50+ Years in Business</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.1s;">✓ Impeccable Service</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.2s;">✓ Green Cleaning</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.3s;">✓ Supplier Diversity</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.4s;">✓ GB Honors Certified</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.5s;">✓ 50+ Years in Business</li>
             </ul>
           </div>
         </div>
@@ -29,85 +30,81 @@
 </section>
 
 <!-- Services Section -->
-<section id="services" class="section" style="background: linear-gradient(180deg, rgba(70, 171, 131, 0.1) 0%, rgba(38, 103, 167, 0.1) 100%);">
+<section id="services" class="section" style="background: linear-gradient(180deg, rgba(70, 171, 131, 0.1) 0%, rgba(38, 103, 167, 0.1) 100%); padding: 5rem 0;">
   <div class="container">
     <div class="fade-in" appScrollAnimation>
-      <h2 class="section-title">Our Services</h2>
-      <p class="section-subtitle">Comprehensive cleaning solutions tailored to your needs</p>
+      <h2 class="section-title animate-fade-in-up">Our Services</h2>
+      <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Comprehensive cleaning solutions tailored to your needs</p>
     </div>
     <div class="row g-4 mt-4">
-      @for (service of services; track service.title; let i = $index) {
-        <div class="col-md-6 col-lg-3">
-          @if (i === 0) {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-1"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--info-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
-              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
-              <div class="card-body text-center">
-                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
-                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
+      @for (service of services; track service.id; let i = $index) {
+        <div class="col-md-6 col-lg-4">
+          <div class="service-card card h-100 shadow-sm fade-in"
+               [style.animation-delay]="(i * 100) + 'ms'"
+               appScrollAnimation
+               (click)="navigateToService(service.slug)"
+               style="background: white; transition: transform 0.8s ease, box-shadow 0.8s ease, border-color 0.8s ease; border-radius: 1rem; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden;">
+
+            <!-- Service image - full width at top -->
+            @if (service.heroImageUrl) {
+              <div class="service-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0;">
+                <img [src]="service.heroImageUrl" [alt]="service.title" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9);">
+              </div>
+            } @else {
+              <div class="service-image" style="width: 100%; height: 200px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; border-radius: 1rem 1rem 0 0;">
+                <div style="font-size: 4rem; color: white;">
+                  🧹
+                </div>
+              </div>
+            }
+
+            <!-- Service content - with padding -->
+            <div class="card-body text-center" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+              <div>
+                <h5 class="card-title mb-3" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">{{ service.title }}</h5>
+                <p class="card-text" style="color: var(--text-light); line-height: 1.6;">{{ service.description }}</p>
+              </div>
+              <div class="mt-auto pt-3 learn-more-link">
+                <span style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-block; padding: 0.5rem 1rem; border-radius: 0.25rem;">Learn More →</span>
               </div>
             </div>
-          } @else if (i === 1) {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-2"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
-              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
-              <div class="card-body text-center">
-                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
-                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
-              </div>
-            </div>
-          } @else if (i === 2) {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-3"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
-              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
-              <div class="card-body text-center">
-                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
-                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
-              </div>
-            </div>
-          } @else {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-4"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); color: white; transition: transform 0.3s ease, box-shadow 0.3s ease; border-radius: 1rem; padding: 2rem;">
-              <div class="text-center mb-3" style="font-size: 3rem;">{{ service.icon }}</div>
-              <div class="card-body text-center">
-                <h5 class="card-title" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">{{ service.title }}</h5>
-                <p class="card-text" style="color: rgba(255,255,255,0.9);">{{ service.description }}</p>
-              </div>
-            </div>
-          }
+          </div>
         </div>
       }
+    </div>
+
+    <!-- View All Services Link -->
+    <div class="text-center mt-5 fade-in" appScrollAnimation>
+      <a routerLink="/our-services" class="btn btn-lg animate-hover" style="background-color: var(--primary-color); border-color: var(--primary-color); color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.3s ease; min-width: 160px; font-size: 1rem;">
+        View All Services
+      </a>
     </div>
   </div>
 </section>
 
 <!-- About Section -->
-<section id="about" class="section" style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%);">
+<section id="about" class="section" style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%); padding: 5rem 0;">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-6 fade-in-left" appScrollAnimation>
-        <h2 class="section-title text-start">About Our Company</h2>
-        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 1.5rem;">
+        <h2 class="section-title text-start animate-fade-in-up">About Our Company</h2>
+        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s both;">
           We are committed to quality service. Since our founding, we have been providing world-class
           commercial cleaning services with a focus on excellence, sustainability, and customer satisfaction.
         </p>
-        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 2rem;">
+        <p style="font-size: 1.125rem; color: var(--text-light); margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.4s both;">
           Our vision is to create a profitable company that projects a professional environment which
           keeps its customers pleased and employees motivated.
         </p>
         <div class="row g-4">
           <div class="col-6">
-            <div class="text-center p-3 mb-5" style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); border-radius: 0.5rem; color: white;">
+            <div class="text-center p-3 mb-5 stats-card" style="background: linear-gradient(135deg, var(--accent-color) 0%, #3a9570 100%); border-radius: 0.5rem; color: white; transition: transform 0.3s ease, box-shadow 0.3s ease;">
               <h3 style="color: white; font-size: 2.5rem; font-weight: bold;">50+</h3>
               <p style="color: rgba(255,255,255,0.9); margin: 0;">Years Experience</p>
             </div>
           </div>
           <div class="col-6">
-            <div class="text-center p-3 mb-5" style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); border-radius: 0.5rem; color: white;">
+            <div class="text-center p-3 mb-5 stats-card" style="background: linear-gradient(135deg, var(--info-color) 0%, var(--primary-color) 100%); border-radius: 0.5rem; color: white; transition: transform 0.3s ease, box-shadow 0.3s ease;">
               <h3 style="color: white; font-size: 2.5rem; font-weight: bold;">500+</h3>
               <p style="color: rgba(255,255,255,0.9); margin: 0;">Happy Clients</p>
             </div>
@@ -115,7 +112,7 @@
         </div>
       </div>
       <div class="col-lg-6 fade-in-right" appScrollAnimation>
-        <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 1rem; padding: 3rem; color: white; min-height: 25rem; display: flex; flex-direction: column; justify-content: center;">
+        <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); border-radius: 1rem; padding: 3rem; color: white; min-height: 25rem; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease;">
           <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Our Mission</h3>
           <p style="font-size: 1.125rem; line-height: 1.8; opacity: 0.95;">
             To provide cost-effective, world-class integrated facility services to commercial building
@@ -129,19 +126,20 @@
 </section>
 
 <!-- Testimonials Section -->
-<section id="testimonials" class="section" style="background: linear-gradient(180deg, rgba(38, 103, 167, 0.1) 0%, rgba(70, 171, 131, 0.15) 100%);">
+<section id="testimonials" class="section" style="background: linear-gradient(180deg, rgba(38, 103, 167, 0.1) 0%, rgba(70, 171, 131, 0.15) 100%); padding: 5rem 0;">
   <div class="container">
     <div class="fade-in" appScrollAnimation>
-      <h2 class="section-title">What Our Clients Say</h2>
-      <p class="section-subtitle">Trusted by businesses nationwide</p>
+      <h2 class="section-title animate-fade-in-up">What Our Clients Say</h2>
+      <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Trusted by businesses nationwide</p>
     </div>
     <div class="row g-4 mt-4">
       @for (testimonial of testimonials; track testimonial.name; let i = $index) {
         <div class="col-md-6">
-          @if (i === 0) {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-1"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.95) 0%, rgba(38, 103, 167, 0.95) 100%); color: white; border-radius: 1rem; padding: 2rem;">
+          <div class="card h-100 border-0 shadow-sm fade-in testimonial-card"
+               [style.animation-delay]="(i * 200) + 'ms'"
+               appScrollAnimation
+               [style.background]="i === 0 ? 'linear-gradient(135deg, rgba(19, 66, 96, 0.95) 0%, rgba(38, 103, 167, 0.95) 100%)' : 'linear-gradient(135deg, rgba(70, 171, 131, 0.95) 0%, rgba(19, 66, 96, 0.95) 100%)'"
+               style="color: white; border-radius: 1rem; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
               <div class="card-body">
                 <div class="mb-3">
                   @for (star of [1,2,3,4,5]; track star) {
@@ -152,72 +150,232 @@
                   "{{ testimonial.text }}"
                 </p>
                 <div>
-                  <h6 style="color: var(--accent-color); font-weight: bold; margin-bottom: 0.25rem;">{{ testimonial.name }}</h6>
+                  <h6 [style.color]="i === 0 ? 'var(--accent-color)' : 'var(--info-color)'" style="font-weight: bold; margin-bottom: 0.25rem;">{{ testimonial.name }}</h6>
                   <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.875rem;">{{ testimonial.role }}, {{ testimonial.company }}</p>
                 </div>
               </div>
             </div>
-          } @else {
-            <div class="card h-100 border-0 shadow-sm fade-in fade-in-delay-2"
-                 appScrollAnimation
-                 style="background: linear-gradient(135deg, rgba(70, 171, 131, 0.95) 0%, rgba(19, 66, 96, 0.95) 100%); color: white; border-radius: 1rem; padding: 2rem;">
-              <div class="card-body">
-                <div class="mb-3">
-                  @for (star of [1,2,3,4,5]; track star) {
-                    <span style="color: #ffc107; font-size: 1.25rem;">★</span>
-                  }
-                </div>
-                <p class="card-text" style="font-size: 1.125rem; color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 1.5rem;">
-                  "{{ testimonial.text }}"
-                </p>
-                <div>
-                  <h6 style="color: var(--info-color); font-weight: bold; margin-bottom: 0.25rem;">{{ testimonial.name }}</h6>
-                  <p style="color: rgba(255,255,255,0.8); margin: 0; font-size: 0.875rem;">{{ testimonial.role }}, {{ testimonial.company }}</p>
-                </div>
-              </div>
-            </div>
-          }
         </div>
       }
     </div>
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+<!-- Blog, Career & Safety Section -->
+<section id="resources" class="section" style="background: linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%); padding: 5rem 0;">
   <div class="container">
     <div class="fade-in" appScrollAnimation>
-      <h2 class="section-title" style="color: white;">Get In Touch</h2>
-      <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Contact us today for a free quote</p>
+      <h2 class="section-title animate-fade-in-up">Explore More</h2>
+      <p class="section-subtitle animate-fade-in-up" style="animation-delay: 0.2s;">Discover our blog, career opportunities, and safety commitment</p>
     </div>
-    <div class="row mt-5">
-      <div class="col-lg-8 mx-auto">
-        <div class="card border-0 shadow-lg fade-in" appScrollAnimation style="border-radius: 1rem; padding: 2.5rem;">
-          <form>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Name</label>
-                <input type="text" class="form-control" placeholder="Your Name" style="padding: 0.75rem; border-radius: 0.5rem;">
-              </div>
-              <div class="col-md-6">
-                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Email</label>
-                <input type="email" class="form-control" placeholder="your.email@example.com" style="padding: 0.75rem; border-radius: 0.5rem;">
-              </div>
-              <div class="col-12">
-                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Phone</label>
-                <input type="tel" class="form-control" placeholder="(555) 123-4567" style="padding: 0.75rem; border-radius: 0.5rem;">
-              </div>
-              <div class="col-12">
-                <label class="form-label" style="color: var(--text-dark); font-weight: 500;">Message</label>
-                <textarea class="form-control" rows="5" placeholder="Tell us about your cleaning needs..." style="padding: 0.75rem; border-radius: 0.5rem;"></textarea>
-              </div>
-              <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg" style="padding: 0.875rem 3rem;">Send Message</button>
-              </div>
+    <div class="row g-4 mt-4">
+      <!-- Blog Card -->
+      <div class="col-md-4">
+        <div class="resource-card card h-100 shadow-sm fade-in"
+             appScrollAnimation
+             routerLink="/blog"
+             style="background: white; border-radius: 1rem; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+
+          <!-- Blog image -->
+          <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--info-color), var(--primary-color));">
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+              📝
             </div>
-          </form>
+          </div>
+
+          <!-- Blog content -->
+          <div class="card-body text-center" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+            <div>
+              <h5 class="card-title mb-3" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">Blog</h5>
+              <p class="card-text" style="color: var(--text-light); line-height: 1.6;">
+                Stay updated with the latest insights, tips, and news about commercial cleaning and facility management.
+              </p>
+            </div>
+            <div class="mt-auto pt-3 learn-more-link">
+              <span style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-block; padding: 0.5rem 1rem; border-radius: 0.25rem;">Read More →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Career Card -->
+      <div class="col-md-4">
+        <div class="resource-card card h-100 shadow-sm fade-in"
+             appScrollAnimation
+             routerLink="/careers"
+             style="background: white; border-radius: 1rem; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+
+          <!-- Career image -->
+          <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--accent-color), #3a9570);">
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+              💼
+            </div>
+          </div>
+
+          <!-- Career content -->
+          <div class="card-body text-center" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+            <div>
+              <h5 class="card-title mb-3" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">Careers</h5>
+              <p class="card-text" style="color: var(--text-light); line-height: 1.6;">
+                Join our team and build a rewarding career in the facility services industry with opportunities for growth.
+              </p>
+            </div>
+            <div class="mt-auto pt-3 learn-more-link">
+              <span style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-block; padding: 0.5rem 1rem; border-radius: 0.25rem;">View Openings →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Safety Card -->
+      <div class="col-md-4">
+        <div class="resource-card card h-100 shadow-sm fade-in"
+             appScrollAnimation
+             routerLink="/safety"
+             style="background: white; border-radius: 1rem; border: 2px solid transparent; cursor: pointer; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+
+          <!-- Safety image -->
+          <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--info-color), var(--primary-color));">
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+              🛡️
+            </div>
+          </div>
+
+          <!-- Safety content -->
+          <div class="card-body text-center" style="padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1;">
+            <div>
+              <h5 class="card-title mb-3" style="color: var(--primary-color); font-size: 1.5rem; font-weight: bold;">Safety</h5>
+              <p class="card-text" style="color: var(--text-light); line-height: 1.6;">
+                Learn about our commitment to safety standards and protocols that protect our team and your facility.
+              </p>
+            </div>
+            <div class="mt-auto pt-3 learn-more-link">
+              <span style="color: var(--accent-color); font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-block; padding: 0.5rem 1rem; border-radius: 0.25rem;">Learn More →</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Call to Action Section -->
+<section id="contact" class="section" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 5rem 0; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80') center/cover; opacity: 0.1;"></div>
+  <div class="container" style="position: relative; z-index: 2;">
+    <div class="row align-items-center">
+      <div class="col-lg-8 mx-auto text-center fade-in" appScrollAnimation>
+        <h2 class="section-title mb-4 animate-fade-in-up" style="color: white; font-size: 2.5rem;">Ready to Get Started?</h2>
+        <p class="lead mb-4 animate-fade-in-up" style="color: rgba(255,255,255,0.9); font-size: 1.25rem; animation-delay: 0.2s;">
+          Contact us today for a free quote and let us help you maintain a clean, healthy, and professional environment.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap animate-fade-in-up" style="animation-delay: 0.4s;">
+          <button class="btn btn-accent btn-lg animate-hover" (click)="navigateToContact()" style="padding: 1rem 3rem; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.2); min-width: 160px;">
+            Contact Us Now
+          </button>
+          <button class="btn btn-outline-light btn-lg animate-hover" routerLink="/our-services" style="padding: 1rem 3rem; font-size: 1rem; transition: all 0.3s ease; min-width: 160px;">
+            Explore Our Services
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animation keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  .animate-list-item {
+    animation: fadeInUp 0.6s ease both;
+  }
+
+  /* Service card hover effects */
+  .service-card {
+    transition: border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .service-card:hover {
+    border-color: var(--accent-color) !important;
+  }
+
+  /* Learn More link hover effect */
+  .service-card:hover .learn-more-link span {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+  }
+
+  /* Resource card Learn More link hover effect */
+  .resource-card:hover .learn-more-link span {
+    background-color: var(--accent-color) !important;
+    color: white !important;
+  }
+
+  /* View All Services button hover */
+  .btn[style*="--primary-color"]:hover {
+    background-color: var(--secondary-color) !important;
+    border-color: var(--secondary-color) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Stats card hover */
+  .stats-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Testimonial card hover */
+  .testimonial-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  /* Button hover animations */
+  .animate-hover:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .animate-hover:active {
+    transform: translateY(-1px) !important;
+  }
+
+  /* Scroll animation visibility */
+  [appScrollAnimation].visible {
+    animation: fadeInUp 0.8s ease both;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2.5rem !important;
+    }
+
+    .hero-section .lead {
+      font-size: 1.1rem !important;
+    }
+  }
+</style>

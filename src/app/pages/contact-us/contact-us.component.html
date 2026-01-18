@@ -34,10 +34,10 @@
         <form (ngSubmit)="onSubmit()" #contactFormRef="ngForm">
           <div class="row g-3">
             <div class="col-md-6">
-              <input 
-                type="text" 
-                class="form-control" 
-                id="name" 
+              <input
+                type="text"
+                class="form-control"
+                id="name"
                 name="name"
                 [(ngModel)]="contactForm.name"
                 placeholder="Name*"
@@ -45,10 +45,10 @@
                 style="background: white; border: 1px solid #e0e0e0; padding: 0.75rem 1rem; border-radius: 0.25rem; font-size: 1rem; width: 100%;">
             </div>
             <div class="col-md-6">
-              <input 
-                type="email" 
-                class="form-control" 
-                id="email" 
+              <input
+                type="email"
+                class="form-control"
+                id="email"
                 name="email"
                 [(ngModel)]="contactForm.email"
                 placeholder="Email*"
@@ -56,19 +56,19 @@
                 style="background: white; border: 1px solid #e0e0e0; padding: 0.75rem 1rem; border-radius: 0.25rem; font-size: 1rem; width: 100%;">
             </div>
             <div class="col-12">
-              <input 
-                type="tel" 
-                class="form-control" 
-                id="phone" 
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
                 name="phone"
                 [(ngModel)]="contactForm.phone"
                 placeholder="Phone"
                 style="background: white; border: 1px solid #e0e0e0; padding: 0.75rem 1rem; border-radius: 0.25rem; font-size: 1rem; width: 100%;">
             </div>
             <div class="col-12">
-              <textarea 
-                class="form-control" 
-                id="message" 
+              <textarea
+                class="form-control"
+                id="message"
                 name="message"
                 [(ngModel)]="contactForm.message"
                 rows="5"
@@ -77,9 +77,9 @@
                 style="background: white; border: 1px solid #e0e0e0; padding: 0.75rem 1rem; border-radius: 0.25rem; font-size: 1rem; width: 100%; resize: vertical;"></textarea>
             </div>
             <div class="col-12">
-              <button 
-                type="submit" 
-                class="btn btn-accent" 
+              <button
+                type="submit"
+                class="btn btn-accent"
                 [disabled]="!contactFormRef.valid"
                 style="padding: 0.75rem 2rem; font-size: 1rem; font-weight: 600; text-transform: uppercase; border: none; border-radius: 0.25rem; cursor: pointer;">
                 Send Message
@@ -94,7 +94,7 @@
         <h2 class="section-title mb-4" style="color: var(--primary-color); font-size: 2rem; font-weight: bold;">
           Contact Information
         </h2>
-        
+
         <div class="mb-4">
           <h4 style="color: var(--primary-color); font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">
             Clearedge Facility Services, Inc.
@@ -126,7 +126,7 @@
           </h4>
           <p style="color: var(--text-dark); font-size: 1rem; line-height: 1.8;">
             <i class="fas fa-envelope" style="color: var(--accent-color); margin-right: 0.5rem;"></i>
-            <a href="mailto:support@ahifs.com" style="color: var(--primary-color); text-decoration: none;">support@ahifs.com</a>
+            <a href="mailto:support@clearedge.com" style="color: var(--primary-color); text-decoration: none;">support@clearedge.com</a>
           </p>
         </div>
       </div>
@@ -140,13 +140,13 @@
     <div class="row">
       <div class="col-12 fade-in" appScrollAnimation>
         <div style="height: 500px; width: 100%; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);">
-          <iframe 
+          <iframe
             src="https://www.google.com/maps?q=1253+Round+Table+Drive,+Dallas,+TX+75247&output=embed"
-            width="100%" 
-            height="100%" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>

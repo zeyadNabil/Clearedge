@@ -1,29 +1,68 @@
 <!-- Footer -->
-<footer class="text-white py-5" style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);">
+<footer class="footer-main text-white py-5">
   <div class="container">
     <div class="row g-4">
-      <div class="col-md-4">
-        <img src="assets/clearedge_logo.jpeg" alt="Clearedge Logo" height="100" class="mb-3">
-        <p style="opacity: 0.9;">Professional cleaning services you can trust.</p>
+      <!-- Logo and Description Column -->
+      <div class="col-lg-3 col-md-6">
+        <img src="assets/clearedge_logo.jpeg" alt="Clearedge Logo" class="footer-logo mb-3" style="max-height: 100px; width: auto; height: auto;">
+        <p class="footer-description">Professional cleaning services you can trust. Meeting higher building standards with impeccable service.</p>
       </div>
-      <div class="col-md-4">
-        <h5 style="color: var(--accent-color); margin-bottom: 1rem;">Quick Links</h5>
-        <ul class="list-unstyled">
-          <li class="mb-2"><a routerLink="/" class="text-white-50 text-decoration-none" (click)="scrollToSection('home'); $event.preventDefault()">Home</a></li>
-          <li class="mb-2"><a routerLink="/" class="text-white-50 text-decoration-none" (click)="scrollToSection('services'); $event.preventDefault()">Services</a></li>
-          <li class="mb-2"><a routerLink="/" class="text-white-50 text-decoration-none" (click)="scrollToSection('about'); $event.preventDefault()">About</a></li>
-          <li class="mb-2"><a routerLink="/" class="text-white-50 text-decoration-none" (click)="scrollToSection('contact'); $event.preventDefault()">Contact</a></li>
+
+      <!-- Quick Links Column -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-heading">Quick Links</h5>
+        <ul class="footer-links">
+          <li><a routerLink="/" class="footer-link" (click)="scrollToSection('home'); $event.preventDefault()">Home</a></li>
+          <li><a routerLink="/safety" class="footer-link">Safety</a></li>
+          <li><a routerLink="/blog" class="footer-link">Blog</a></li>
+          <li><a routerLink="/clients" class="footer-link">Clients</a></li>
+          <li><a routerLink="/careers" class="footer-link">Careers</a></li>
+          <li><a routerLink="/contact-us" class="footer-link">Contact Us</a></li>
         </ul>
       </div>
-      <div class="col-md-4">
-        <h5 style="color: var(--accent-color); margin-bottom: 1rem;">Contact Info</h5>
-        <p style="opacity: 0.8; margin-bottom: 0.5rem;">📧 support@clearedge.com</p>
-        <p style="opacity: 0.8; margin-bottom: 0.5rem;">📞 (555) 123-4567</p>
-        <p style="opacity: 0.8;">📍 Your Address Here</p>
+
+      <!-- Services Column -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-heading">Services</h5>
+        <ul class="footer-links">
+          <li><a routerLink="/our-services" class="footer-link">Our Services</a></li>
+          @for (service of services; track service.slug) {
+            <li><a [routerLink]="['/services', service.slug]" class="footer-link">{{ service.title }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <!-- About Us Column -->
+      <div class="col-lg-2 col-md-6">
+        <h5 class="footer-heading">About Us</h5>
+        <ul class="footer-links">
+          @for (page of whyAhiPages; track page.slug) {
+            <li><a [routerLink]="['/why-ahi', page.slug]" class="footer-link">{{ page.title }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <!-- Contact Info Column -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-heading">Contact Info</h5>
+        <ul class="footer-contact">
+          <li class="contact-item">
+            <span class="contact-icon">📧</span>
+            <span>support@clearedge.com</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon">📞</span>
+            <span>(555) 123-4567</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Your Address Here</span>
+          </li>
+        </ul>
       </div>
     </div>
-    <hr class="my-4" style="opacity: 0.2;">
-    <div class="text-center" style="opacity: 0.8;">
+    <hr class="footer-divider my-4">
+    <div class="text-center footer-copyright">
       <p>&copy; 2024 Clearedge. All rights reserved.</p>
     </div>
   </div>

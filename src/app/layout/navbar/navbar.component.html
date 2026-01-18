@@ -110,13 +110,13 @@
           <a class="nav-link"
              routerLink="/contact-us"
              [class.active]="isActive('contact') || isActive('contact-us')"
-             style="cursor: pointer;">CONTACT US</a>
+             style="cursor: pointer; white-space: nowrap;">CONTACT US</a>
         </li>
       </ul>
 
       <!-- CTA Button - Right -->
-      <div class="d-flex">
-        <button class="btn btn-accent" routerLink="/contact-us">Get Quote</button>
+      <div class="d-flex navbar-button-container" style="flex: 0 0 auto; justify-content: flex-end;">
+        <a class="btn btn-accent" routerLink="/contact-us" style="white-space: nowrap; text-decoration: none;">Get Quote</a>
       </div>
     </div>
   </div>
