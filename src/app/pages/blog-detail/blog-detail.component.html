@@ -1,0 +1,139 @@
+@if (blogPost) {
+  <!-- Hero Section with Image -->
+  <section class="blog-detail-hero" style="position: relative; min-height: 60vh; display: flex; align-items: center; overflow: hidden; padding-top: 9rem;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('{{ blogPost.imageUrl }}'); background-size: cover; background-position: center;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.85) 0%, rgba(38, 103, 167, 0.85) 100%);"></div>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <!-- Title -->
+          <h1 class="display-4 fw-bold mb-4 fade-in" appScrollAnimation style="font-size: 3rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); line-height: 1.2;">
+            {{ blogPost.title }}
+          </h1>
+          
+          <!-- Category Badge -->
+          <div class="mb-3 fade-in" appScrollAnimation>
+            <span style="background: var(--accent-color); color: white; padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+              {{ blogPost.category }}
+            </span>
+          </div>
+          
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="mb-4 fade-in" appScrollAnimation>
+            <ol class="breadcrumb justify-content-center" style="background: transparent; margin-bottom: 0; padding: 0;">
+              <li class="breadcrumb-item">
+                <a routerLink="/" style="color: white; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a routerLink="/blog" style="color: white; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Blog</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page" style="color: rgba(255,255,255,0.9); text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                {{ blogPost.title }}
+              </li>
+            </ol>
+          </nav>
+          
+          <!-- Meta Information -->
+          <div class="blog-meta-info fade-in" appScrollAnimation style="display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; color: rgba(255,255,255,0.9); font-size: 1rem;">
+            <span style="display: flex; align-items: center; gap: 0.5rem;">
+              <i class="fas fa-calendar-alt"></i>
+              {{ formatDate(blogPost.date) }}
+            </span>
+            @if (blogPost.author) {
+              <span style="display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-user"></i>
+                {{ blogPost.author }}
+              </span>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content Section -->
+  <section class="blog-content-section section" style="background: white; padding-top: 4rem; padding-bottom: 4rem;">
+    <div class="container">
+      <div class="row">
+        <!-- Main Content -->
+        <div class="col-lg-8 mx-auto">
+          <article class="blog-article fade-in" appScrollAnimation>
+            <!-- Featured Image -->
+            <div class="blog-featured-image mb-5" style="border-radius: 1rem; overflow: hidden; box-shadow: 0 8px 16px rgba(0,0,0,0.1);">
+              <img [src]="blogPost.imageUrl" [alt]="blogPost.title" style="width: 100%; height: auto; display: block;">
+            </div>
+            
+            <!-- Article Content -->
+            <div class="blog-article-content" style="font-size: 1.125rem; line-height: 1.8; color: var(--text-dark);">
+              <div [innerHTML]="blogPost.content" style="margin-bottom: 3rem;"></div>
+            </div>
+            
+            <!-- Share Buttons -->
+            <div class="blog-share-section" style="padding: 2rem 0; border-top: 1px solid #e0e0e0; border-bottom: 1px solid #e0e0e0; margin: 3rem 0;">
+              <h4 style="color: var(--primary-color); margin-bottom: 1rem;">Share this article</h4>
+              <div class="d-flex gap-3 flex-wrap">
+                <button class="btn btn-share" style="background: #1877f2; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 0.5rem; cursor: pointer;">
+                  <i class="fab fa-facebook-f me-2"></i> Facebook
+                </button>
+                <button class="btn btn-share" style="background: #1da1f2; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 0.5rem; cursor: pointer;">
+                  <i class="fab fa-twitter me-2"></i> Twitter
+                </button>
+                <button class="btn btn-share" style="background: #0a66c2; color: white; border: none; padding: 0.5rem 1.5rem; border-radius: 0.5rem; cursor: pointer;">
+                  <i class="fab fa-linkedin-in me-2"></i> LinkedIn
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Posts Section -->
+  @if (relatedPosts.length > 0) {
+    <section class="related-posts-section section" style="background: linear-gradient(180deg, rgba(70, 171, 131, 0.05) 0%, rgba(38, 103, 167, 0.05) 100%); padding-top: 4rem; padding-bottom: 4rem;">
+      <div class="container">
+        <div class="fade-in" appScrollAnimation>
+          <h2 class="section-title text-center mb-5" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+            Related Articles
+          </h2>
+        </div>
+        <div class="row g-4">
+          @for (post of relatedPosts; track post.id) {
+            <div class="col-md-4">
+              <article class="blog-card fade-in" 
+                       appScrollAnimation
+                       style="background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; cursor: pointer;"
+                       [routerLink]="['/blog', post.slug]">
+                <div style="height: 200px; background-image: url('{{ post.imageUrl }}'); background-size: cover; background-position: center; position: relative;"></div>
+                <div style="padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column;">
+                  <div style="margin-bottom: 0.75rem;">
+                    <span style="background: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 2rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">
+                      {{ post.category }}
+                    </span>
+                  </div>
+                  <h3 style="color: var(--primary-color); font-size: 1.25rem; font-weight: bold; margin-bottom: 0.75rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                    {{ post.title }}
+                  </h3>
+                  <p style="color: var(--text-light); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+                    {{ post.excerpt }}
+                  </p>
+                  <span style="color: var(--accent-color); font-weight: 600; font-size: 0.875rem; text-transform: uppercase;">
+                    Read More →
+                  </span>
+                </div>
+              </article>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+  }
+} @else {
+  <section class="section" style="padding: 4rem 0; text-align: center;">
+    <div class="container">
+      <h2 style="color: var(--text-light);">Blog post not found</h2>
+      <a routerLink="/blog" class="btn btn-primary mt-3">Back to Blog</a>
+    </div>
+  </section>
+}

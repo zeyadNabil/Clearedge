@@ -1,12 +1,14 @@
 import { Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { ServiceDetailComponent } from './pages/service-detail/service-detail.component';
+import { ServiceDetailComponent } from './pages/our-services/service-detail/service-detail.component';
 import { OurServicesComponent } from './pages/our-services/our-services.component';
 import { SafetyComponent } from './pages/safety/safety.component';
 import { ClientsComponent } from './pages/clients/clients.component';
 import { CareersComponent } from './pages/careers/careers.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { WhyAhiDetailComponent } from './pages/why-ahi-detail/why-ahi-detail.component';
+import { BlogComponent } from './pages/blog/blog.component';
+import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
 
 export const routes: Routes = [
   {
@@ -49,5 +51,13 @@ export const routes: Routes = [
   {
     path: 'contact-us',
     component: ContactUsComponent
+  },
+  {
+    path: 'blog',
+    component: BlogComponent
+  },
+  {
+    path: 'blog/:slug',
+    component: BlogDetailComponent
   }
 ];

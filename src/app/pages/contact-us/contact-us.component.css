@@ -19,11 +19,25 @@
 }
 
 .form-control {
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
-  border-color: var(--accent-color);
-  outline: none;
-  box-shadow: 0 0 0 0.2rem rgba(70, 171, 131, 0.25);
+  border-color: var(--primary-color) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(19, 66, 96, 0.1) !important;
+}
+
+.form-control:hover {
+  border-color: var(--primary-color);
+}
+
+.form-control::placeholder {
+  color: #999;
+}
+
+textarea.form-control:focus {
+  border-color: var(--primary-color) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(19, 66, 96, 0.1) !important;
 }

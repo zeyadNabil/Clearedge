@@ -1,9 +1,11 @@
-import { Component, OnInit, OnDestroy, HostListener, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, HostListener, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { ServiceDataService, ServiceDetail } from '../../services/service-data.service';
 import { WhyAhiDataService, WhyAhiPage } from '../../services/why-ahi-data.service';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +14,9 @@ import { WhyAhiDataService, WhyAhiPage } from '../../services/why-ahi-data.servi
   styleUrl: './navbar.component.css',
   encapsulation: ViewEncapsulation.None
 })
-export class NavbarComponent implements OnInit, OnDestroy {
+export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild('navbarCollapse', { static: false }) navbarCollapse!: ElementRef;
+
   activeSection: string = 'home';
   currentRoute: string = '';
   services: ServiceDetail[] = [];
@@ -22,6 +26,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isScrolled: boolean = false;
   isMobile: boolean = false;
   private resizeListener: () => void;
+  private clickListener?: (event: MouseEvent) => void;
+  private collapseInstance?: any;
 
   constructor(
     private router: Router,
@@ -49,10 +55,45 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.updateCurrentWhyAhi();
         this.updateActiveSection();
         this.checkScroll();
+        // Close mobile menu when route changes
+        this.closeMobileMenu();
       });
 
     // Listen for window resize to update mobile state
     window.addEventListener('resize', this.resizeListener);
+  }
+
+  ngAfterViewInit() {
+    // Wait a bit for Bootstrap to be fully loaded
+    setTimeout(() => {
+      // Initialize Bootstrap collapse instance
+      if (this.navbarCollapse && typeof bootstrap !== 'undefined') {
+        const collapseElement = this.navbarCollapse.nativeElement;
+        try {
+          this.collapseInstance = new bootstrap.Collapse(collapseElement, {
+            toggle: false
+          });
+        } catch (error) {
+          console.warn('Bootstrap Collapse not available:', error);
+        }
+      }
+
+      // Listen for click outside to close menu
+      this.clickListener = (event: MouseEvent) => {
+        if (this.isMobile && this.isMenuOpen()) {
+          const target = event.target as HTMLElement;
+          const navbar = document.querySelector('.navbar');
+          const toggler = document.querySelector('.navbar-toggler');
+
+          // Check if click is outside navbar and not on toggler button
+          if (navbar && !navbar.contains(target) && !toggler?.contains(target)) {
+            this.closeMobileMenu();
+          }
+        }
+      };
+
+      document.addEventListener('click', this.clickListener);
+    }, 100);
   }
 
   checkMobile() {
@@ -94,8 +135,37 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Remove event listener
+    // Remove event listeners
     window.removeEventListener('resize', this.resizeListener);
+    if (this.clickListener) {
+      document.removeEventListener('click', this.clickListener);
+    }
+  }
+
+  isMenuOpen(): boolean {
+    if (this.navbarCollapse) {
+      const collapseElement = this.navbarCollapse.nativeElement;
+      return collapseElement.classList.contains('show');
+    }
+    return false;
+  }
+
+  closeMobileMenu(): void {
+    if (this.collapseInstance && this.isMenuOpen()) {
+      try {
+        this.collapseInstance.hide();
+      } catch (error) {
+        // Fallback: manually remove 'show' class
+        if (this.navbarCollapse) {
+          const collapseElement = this.navbarCollapse.nativeElement;
+          collapseElement.classList.remove('show');
+          const togglerButton = document.querySelector('.navbar-toggler');
+          if (togglerButton) {
+            togglerButton.setAttribute('aria-expanded', 'false');
+          }
+        }
+      }
+    }
   }
 
   @HostListener('window:scroll', [])
@@ -157,6 +227,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     if (sectionId === 'careers') {
       return this.currentRoute === '/careers';
+    }
+    if (sectionId === 'blog') {
+      return this.currentRoute === '/blog' || this.currentRoute.startsWith('/blog/');
     }
     if (sectionId === 'contact' || sectionId === 'contact-us') {
       return this.currentRoute === '/contact-us';

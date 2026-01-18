@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ServiceDataService, ServiceDetail } from '../../services/service-data.service';
-import { ScrollAnimationDirective } from '../../scroll-animation.directive';
+import { ServiceDataService, ServiceDetail } from '../../../services/service-data.service';
+import { ScrollAnimationDirective } from '../../../scroll-animation.directive';
 
 @Component({
   selector: 'app-service-detail',
