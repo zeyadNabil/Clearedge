@@ -16,11 +16,11 @@
           <div style="background: rgba(255,255,255,0.1); border-radius: 1rem; padding: 2rem; backdrop-filter: blur(10px); animation: float 6s ease-in-out infinite;">
             <h3 class="mb-4">Why Choose Us?</h3>
             <ul class="list-unstyled text-start" style="font-size: 1.125rem;">
-              <li class="mb-3 animate-list-item" style="animation-delay: 0.1s;">✓ Impeccable Service</li>
-              <li class="mb-3 animate-list-item" style="animation-delay: 0.2s;">✓ Green Cleaning</li>
-              <li class="mb-3 animate-list-item" style="animation-delay: 0.3s;">✓ Supplier Diversity</li>
-              <li class="mb-3 animate-list-item" style="animation-delay: 0.4s;">✓ GB Honors Certified</li>
-              <li class="mb-3 animate-list-item" style="animation-delay: 0.5s;">✓ 50+ Years in Business</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.1s;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Impeccable Service</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.2s;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Green Cleaning</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.3s;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Supplier Diversity</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.4s;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.5rem;"></i> GB Honors Certified</li>
+              <li class="mb-3 animate-list-item" style="animation-delay: 0.5s;"><i class="fas fa-check-circle" style="color: var(--accent-color); margin-right: 0.5rem;"></i> 50+ Years in Business</li>
             </ul>
           </div>
         </div>
@@ -52,9 +52,7 @@
               </div>
             } @else {
               <div class="service-image" style="width: 100%; height: 200px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; border-radius: 1rem 1rem 0 0;">
-                <div style="font-size: 4rem; color: white;">
-                  🧹
-                </div>
+                <i class="fas fa-broom" style="font-size: 4rem; color: white;"></i>
               </div>
             }
 
@@ -139,11 +137,11 @@
                [style.animation-delay]="(i * 200) + 'ms'"
                appScrollAnimation
                [style.background]="i === 0 ? 'linear-gradient(135deg, rgba(19, 66, 96, 0.95) 0%, rgba(38, 103, 167, 0.95) 100%)' : 'linear-gradient(135deg, rgba(70, 171, 131, 0.95) 0%, rgba(19, 66, 96, 0.95) 100%)'"
-               style="color: white; border-radius: 1rem; padding: 2rem; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+               style="color: white; border-radius: 1rem; padding: 2rem; transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
               <div class="card-body">
                 <div class="mb-3">
                   @for (star of [1,2,3,4,5]; track star) {
-                    <span style="color: #ffc107; font-size: 1.25rem;">★</span>
+                    <i class="fas fa-star" style="color: #ffc107; font-size: 1.25rem;"></i>
                   }
                 </div>
                 <p class="card-text" style="font-size: 1.125rem; color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 1.5rem;">
@@ -178,8 +176,8 @@
 
           <!-- Blog image -->
           <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--info-color), var(--primary-color));">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-              📝
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+              <i class="fas fa-blog" style="font-size: 4rem;"></i>
             </div>
           </div>
 
@@ -207,8 +205,8 @@
 
           <!-- Career image -->
           <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--accent-color), #3a9570);">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-              💼
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+              <i class="fas fa-briefcase" style="font-size: 4rem;"></i>
             </div>
           </div>
 
@@ -236,8 +234,8 @@
 
           <!-- Safety image -->
           <div class="resource-image" style="width: 100%; height: 200px; overflow: hidden; border-radius: 1rem 1rem 0 0; background: linear-gradient(135deg, var(--info-color), var(--primary-color));">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
-              🛡️
+            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+              <i class="fas fa-shield-alt" style="font-size: 4rem;"></i>
             </div>
           </div>
 

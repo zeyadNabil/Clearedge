@@ -11,4 +11,7 @@ import { BackToTopComponent } from './layout/back-to-top/back-to-top.component';
   styleUrl: './app.css'
 })
 export class App {
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+  }
 }
