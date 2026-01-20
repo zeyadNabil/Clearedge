@@ -5,10 +5,10 @@
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(19, 66, 96, 0.85) 0%, rgba(38, 103, 167, 0.85) 100%);"></div>
     <div class="container" style="position: relative; z-index: 2;">
       <div class="row">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center fade-in" appScrollAnimation>
           <h1 class="display-3 fw-bold mb-4" style="font-size: 4rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">{{ service.title }}</h1>
           <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="mb-4">
+          <nav aria-label="breadcrumb" class="mb-4 fade-in" appScrollAnimation>
             <ol class="breadcrumb justify-content-center" style="background: transparent; margin-bottom: 0; padding: 0;">
               <li class="breadcrumb-item">
                 <a routerLink="/" style="color: white; text-decoration: none; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">Home</a>
@@ -31,10 +31,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto fade-in" appScrollAnimation>
-          <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+          <h2 class="section-title text-center mb-4 fade-in" appScrollAnimation style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
             {{ service.mainHeading }}
           </h2>
-          <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto;">
+          <p class="fade-in fade-in-delay-1" appScrollAnimation style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto;">
             {{ service.mainDescription }}
           </p>
         </div>
@@ -83,41 +83,41 @@
             <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
               Clean Industry Management Standard Certified with Honors
             </h2>
-            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto 3rem;">
+            <p class="fade-in fade-in-delay-1" appScrollAnimation style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto 3rem;">
               CIMS is the first comprehensive management and operations standard for cleaning organizations. Administered by the ISSA and the American Institute for Cleaning Sciences, CIMS is designed to help building service contractors and in-house service providers develop quality, customer-centered organizations.
             </p>
 
-            <div class="mb-4">
+            <div class="mb-4 fade-in fade-in-delay-2" appScrollAnimation>
               <h3 style="color: var(--primary-color); font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; text-align: center;">
                 The five principals that have proven to be the hallmarks of well-managed, successful cleaning operations are:
               </h3>
               <div class="row g-3 justify-content-center">
                 <div class="col-md-6 col-lg-4">
-                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                  <div class="fade-in" appScrollAnimation style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
                     <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
                     <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Quality Systems</span>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                  <div class="fade-in fade-in-delay-1" appScrollAnimation style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
                     <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
                     <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Human Resources</span>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                  <div class="fade-in fade-in-delay-2" appScrollAnimation style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
                     <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
                     <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Management Commitment</span>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                  <div class="fade-in fade-in-delay-3" appScrollAnimation style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
                     <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
                     <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Service Delivery</span>
                   </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                  <div style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
+                  <div class="fade-in fade-in-delay-4" appScrollAnimation style="display: flex; align-items: center; padding: 1rem; background: rgba(70, 171, 131, 0.1); border-radius: 0.5rem;">
                     <i class="fas fa-check-circle" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 1rem;"></i>
                     <span style="font-size: 1.1rem; color: var(--text-dark); font-weight: 500;">Health, Safety, and Environment Stewardship</span>
                   </div>
@@ -194,13 +194,13 @@
             <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80" alt="Cleaning Supplies" style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);">
           </div>
           <div class="col-lg-7 fade-in" appScrollAnimation>
-            <h2 class="section-title mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+            <h2 class="section-title mb-4 fade-in" appScrollAnimation style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
               Ensuring Patient and Staff Safety
             </h2>
-            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">
+            <p class="fade-in fade-in-delay-1" appScrollAnimation style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem;">
               In today's healthcare environment, infections affect millions of people annually, resulting in billions of dollars in lost work time each year in the US. Yet, one third of those cases are considered preventable if proper infection control procedures are in place.
             </p>
-            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 0;">
+            <p class="fade-in fade-in-delay-2" appScrollAnimation style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; margin-bottom: 0;">
               Clearedge's cleaning program that focuses on hygienic cleaning can help reduce the spread of infectious disease.
             </p>
           </div>
@@ -215,13 +215,13 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10 fade-in" appScrollAnimation>
-            <h2 class="section-title text-center mb-4" style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
+            <h2 class="section-title text-center mb-4 fade-in" appScrollAnimation style="color: var(--primary-color); font-size: 2.5rem; font-weight: bold;">
               Increase Sales and Customer Satisfaction
             </h2>
-            <p style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; margin-bottom: 1.5rem;">
+            <p class="fade-in fade-in-delay-1" appScrollAnimation style="font-size: 1.125rem; color: var(--text-light); line-height: 1.8; text-align: center; margin-bottom: 1.5rem;">
               A retail stores cleanliness may not be what the customer remembers on a shopping trip, but the appearance of a store subconsciously tells the patron how much the owner cares about the business.
             </p>
-            <p style="font-size: 1.125rem; color: var(--text-dark); line-height: 1.8; text-align: center; margin-bottom: 0;">
+            <p class="fade-in fade-in-delay-2" appScrollAnimation style="font-size: 1.125rem; color: var(--text-dark); line-height: 1.8; text-align: center; margin-bottom: 0;">
               Reassure your customers that you care about both the stores presentation and their shopping experience. Contact Clearedge Facility Services today for a free site survey.
             </p>
           </div>
@@ -295,16 +295,16 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center fade-in" appScrollAnimation>
-          <h2 class="mb-4" style="font-size: 2.5rem; font-weight: bold;">Want to talk?</h2>
-          <div class="mb-4">
+          <h2 class="mb-4 fade-in" appScrollAnimation style="font-size: 2.5rem; font-weight: bold;">Want to talk?</h2>
+          <div class="mb-4 fade-in fade-in-delay-1" appScrollAnimation>
             <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">Please call now: (214) 741-3714</h3>
             <p style="font-size: 1.25rem; opacity: 0.9;">Toll Free: (800) 472-5749</p>
           </div>
-          <p style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 2rem;">
+          <p class="fade-in fade-in-delay-2" appScrollAnimation style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 2rem;">
             Need a special cleaning service?<br>
             We are happy to fulfill every request in order to exceed your expectations.
           </p>
-          <a routerLink="/" (click)="scrollToSection('contact'); $event.preventDefault()" class="btn btn-accent btn-lg" style="padding: 1rem 3rem; font-size: 1.125rem;">
+          <a routerLink="/contact-us" class="btn btn-accent btn-lg fade-in fade-in-delay-3" appScrollAnimation style="padding: 1rem 3rem; font-size: 1.125rem;">
             Contact Us
           </a>
         </div>

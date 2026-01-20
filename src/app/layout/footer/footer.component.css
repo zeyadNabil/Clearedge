@@ -4,7 +4,7 @@
 
 .footer-logo {
   opacity: 0.9;
-  max-height: 100px;
+  max-height: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -61,11 +61,17 @@
   margin-bottom: 1rem;
   opacity: 0.85;
   font-size: 0.95rem;
+  color: white;
+}
+
+.contact-item span {
+  color: white;
 }
 
 .contact-icon {
   margin-right: 0.75rem;
   font-size: 1.1rem;
+  color: white;
 }
 
 .footer-divider {
@@ -119,7 +125,7 @@
 
 @media (max-width: 575.98px) {
   .footer-logo {
-    height: 80px;
+    max-height: 120px;
   }
 
   .footer-description {

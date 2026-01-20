@@ -30,7 +30,7 @@
   <div class="container">
     <div class="row">
       <!-- Search Bar -->
-      <div class="col-12 mb-4">
+      <div class="col-12 mb-4 fade-in" appScrollAnimation>
         <div class="blog-search-container" style="max-width: 600px; margin: 0 auto;">
           <div class="input-group" style="position: relative;">
             <input 
@@ -47,7 +47,7 @@
         </div>
       </div>
       <!-- Category Filter Buttons -->
-      <div class="col-12">
+      <div class="col-12 fade-in" appScrollAnimation>
         <div class="d-flex flex-wrap gap-2 justify-content-center align-items-center">
           <button 
             class="btn btn-category"
@@ -131,7 +131,7 @@
         }
       </div>
     } @else {
-      <div class="text-center" style="padding: 4rem 0;">
+      <div class="text-center fade-in" appScrollAnimation style="padding: 4rem 0;">
         <h3 style="color: var(--text-light); font-size: 1.5rem; margin-bottom: 1rem;">
           @if (searchQuery.trim()) {
             No blog posts found matching "{{ searchQuery }}"
