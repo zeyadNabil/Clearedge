@@ -523,19 +523,19 @@
 
 .fade-in-left {
   opacity: 0;
-  animation: fadeInLeft 0.8s ease-out forwards;
+  transform: translateX(-50px);
 }
 
 .fade-in-right {
   opacity: 0;
-  animation: fadeInRight 0.8s ease-out forwards;
+  transform: translateX(50px);
 }
 
-.fade-in-left.active {
+.fade-in-left.visible {
   animation: fadeInLeft 0.8s ease-out forwards;
 }
 
-.fade-in-right.active {
+.fade-in-right.visible {
   animation: fadeInRight 0.8s ease-out forwards;
 }
 
@@ -723,6 +723,12 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Override general hover for CIMS cards */
+.cims-cards-section .info-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 /* About Clearedge cards - reduced height */
 .about-cards-section .info-card {
   min-height: 200px;
@@ -824,7 +830,8 @@
 
 .cims-cards-section .info-card[data-card-index="0"] {
   background: linear-gradient(135deg, #134260 0%, #2667A7 100%);
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(19, 66, 96, 0.15);
 }
 
 .cims-cards-section .info-card[data-card-index="0"] .card-title,
@@ -837,14 +844,15 @@
 }
 
 .cims-cards-section .info-card[data-card-index="0"]:hover {
-  background: linear-gradient(135deg, #2667A7 0%, #134260 100%);
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(19, 66, 96, 0.3);
+  background: linear-gradient(135deg, #2667A7 0%, #134260 100%) !important;
+  transform: translateY(-10px) scale(1.08) !important;
+  box-shadow: 0 20px 60px rgba(19, 66, 96, 0.4), 0 0 30px rgba(38, 103, 167, 0.3) !important;
 }
 
 .cims-cards-section .info-card[data-card-index="1"] {
   background: linear-gradient(135deg, #46AB83 0%, #2667A7 100%);
-  transition: all 0.4s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(70, 171, 131, 0.15);
 }
 
 .cims-cards-section .info-card[data-card-index="1"] .card-title,
@@ -853,9 +861,20 @@
 }
 
 .cims-cards-section .info-card[data-card-index="1"]:hover {
-  background: linear-gradient(135deg, #2667A7 0%, #46AB83 100%);
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(70, 171, 131, 0.3);
+  background: linear-gradient(135deg, #2667A7 0%, #46AB83 100%) !important;
+  transform: translateY(-10px) scale(1.08) !important;
+  box-shadow: 0 20px 60px rgba(70, 171, 131, 0.4), 0 0 30px rgba(38, 103, 167, 0.3) !important;
+}
+
+/* Disable zoom on small screens */
+@media (max-width: 768px) {
+  .cims-cards-section .info-card[data-card-index="0"]:hover {
+    transform: translateY(-5px) scale(1) !important;
+  }
+  
+  .cims-cards-section .info-card[data-card-index="1"]:hover {
+    transform: translateY(-5px) scale(1) !important;
+  }
 }
 
 /* CIMS numbered list styling */
