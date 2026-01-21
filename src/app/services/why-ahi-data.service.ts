@@ -6,7 +6,7 @@ export interface ContentSection {
   content: string;
   imageUrl?: string;
   icon?: string;
-  displayType?: 'default' | 'card' | 'horizontal-card';
+  displayType?: 'default' | 'card' | 'horizontal-card' | 'blob';
   titleSize?: 'h2' | 'h3' | 'h4';
   color?: string;
   additionalImages?: string[];
@@ -42,14 +42,14 @@ export class WhyAhiDataService {
           imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80'
         },
         {
-          title: 'WHO WE ARE',
-          content: 'To provide cost-effective world class integrated facility services to commercial building owners and/or managers nationwide, while simultaneously providing their employees, tenants and visitors a clean environment in which to work, office and visit.',
-          imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'
+          subtitle: 'Who We Are',
+          content: 'To provide cost-effective world class<br>integrated facility services to commercial<br>building owners and/or managers nationwide,<br>while simultaneously providing their employees,<br>tenants and visitors a clean environment<br>in which to work, office and visit.',
+          displayType: 'blob'
         },
         {
-          title: 'Our Vision',
-          content: 'To create a profitable company that projects a professional environment which keeps its customers pleased and employees motivated.',
-          displayType: 'card'
+          subtitle: 'Our Vision',
+          content: 'To create a profitable company that<br>projects a professional environment<br>which keeps its customers pleased<br>and employees motivated.',
+          displayType: 'blob'
         }
       ]
     },

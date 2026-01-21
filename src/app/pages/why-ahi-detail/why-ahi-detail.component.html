@@ -30,7 +30,157 @@
 @if (page) {
   <!-- Content Sections -->
   @for (section of page.sections; track section.title; let i = $index) {
-    @if ((section.displayType === 'card' || section.displayType === 'horizontal-card') && (i === 0 || (page.sections[i - 1].displayType !== 'card' && page.sections[i - 1].displayType !== 'horizontal-card'))) {
+    @if (section.displayType === 'blob' && page.slug === 'about-ahi' && (i === 0 || page.sections[i - 1].displayType !== 'blob')) {
+      <!-- Blob Sections for About Page -->
+      <section class="blob-sections-container" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); padding: 5rem 0; position: relative; overflow: hidden;">
+        <div class="container">
+          <div class="row align-items-center justify-content-center g-5">
+            @for (blobSection of page.sections; track blobSection.title; let j = $index) {
+              @if (j >= i && blobSection.displayType === 'blob') {
+                <div class="col-lg-6 col-md-12 mb-4">
+                  <div class="blob-card-wrapper fade-in-up"
+                       [class.blob-purple]="j === i"
+                       [class.blob-cyan]="j === i + 1"
+                       [attr.data-blob-index]="j - i"
+                       appScrollAnimation>
+                    <!-- SVG Blob Background with Multiple Layers -->
+                    <div class="blob-svg-container">
+                      <svg viewBox="0 0 700 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                        <defs>
+                          @if (j === i) {
+                            <!-- Primary/Secondary Gradients for "Who We Are" -->
+                            <linearGradient id="purpleGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#134260;stop-opacity:0.7" />
+                              <stop offset="100%" style="stop-color:#11374C;stop-opacity:0.7" />
+                            </linearGradient>
+                            <linearGradient id="purpleGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#134260;stop-opacity:0.85" />
+                              <stop offset="100%" style="stop-color:#11374C;stop-opacity:0.85" />
+                            </linearGradient>
+                            <linearGradient id="purpleGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#134260;stop-opacity:1" />
+                              <stop offset="50%" style="stop-color:#11374C;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#2667A7;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow-purple">
+                              <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+                              <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                            </filter>
+                          }
+                          @if (j === i + 1) {
+                            <!-- Accent/Info Gradients for "Our Vision" -->
+                            <linearGradient id="cyanGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#46AB83;stop-opacity:0.7" />
+                              <stop offset="100%" style="stop-color:#2667A7;stop-opacity:0.7" />
+                            </linearGradient>
+                            <linearGradient id="cyanGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#46AB83;stop-opacity:0.85" />
+                              <stop offset="100%" style="stop-color:#2667A7;stop-opacity:0.85" />
+                            </linearGradient>
+                            <linearGradient id="cyanGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" style="stop-color:#46AB83;stop-opacity:1" />
+                              <stop offset="50%" style="stop-color:#2667A7;stop-opacity:1" />
+                              <stop offset="100%" style="stop-color:#134260;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow-cyan">
+                              <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+                              <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                            </filter>
+                          }
+                        </defs>
+                        
+                        <!-- Background Layer 1 (Largest, Most Transparent) -->
+                        <path
+                          [attr.fill]="j === i ? 'url(#purpleGradient1)' : 'url(#cyanGradient1)'"
+                          d="M550,230 Q620,190 650,140 Q680,90 640,50 Q600,10 520,20 Q440,30 360,25 Q280,20 200,40 Q120,60 80,130 Q40,200 70,270 Q100,340 180,380 Q260,420 350,410 Q440,400 520,370 Q600,340 550,230 Z"
+                          class="blob-layer blob-layer-1">
+                          <animate
+                            attributeName="d"
+                            dur="12s"
+                            repeatCount="indefinite"
+                            values="
+                              M550,230 Q620,190 650,140 Q680,90 640,50 Q600,10 520,20 Q440,30 360,25 Q280,20 200,40 Q120,60 80,130 Q40,200 70,270 Q100,340 180,380 Q260,420 350,410 Q440,400 520,370 Q600,340 550,230 Z;
+                              M560,220 Q630,180 655,135 Q685,85 645,45 Q605,5 525,15 Q445,25 365,20 Q285,15 205,35 Q125,55 85,125 Q45,195 75,265 Q105,335 185,375 Q265,415 355,405 Q445,395 525,365 Q605,335 560,220 Z;
+                              M550,230 Q620,190 650,140 Q680,90 640,50 Q600,10 520,20 Q440,30 360,25 Q280,20 200,40 Q120,60 80,130 Q40,200 70,270 Q100,340 180,380 Q260,420 350,410 Q440,400 520,370 Q600,340 550,230 Z"
+                          />
+                        </path>
+                        
+                        <!-- Background Layer 2 (Medium) -->
+                        <path
+                          [attr.fill]="j === i ? 'url(#purpleGradient2)' : 'url(#cyanGradient2)'"
+                          d="M510,220 Q570,185 595,140 Q620,95 585,55 Q550,20 480,28 Q410,36 340,32 Q270,28 200,45 Q130,62 95,125 Q60,188 85,255 Q110,322 175,358 Q240,394 320,385 Q400,376 470,350 Q540,324 510,220 Z"
+                          class="blob-layer blob-layer-2">
+                          <animate
+                            attributeName="d"
+                            dur="10s"
+                            repeatCount="indefinite"
+                            values="
+                              M510,220 Q570,185 595,140 Q620,95 585,55 Q550,20 480,28 Q410,36 340,32 Q270,28 200,45 Q130,62 95,125 Q60,188 85,255 Q110,322 175,358 Q240,394 320,385 Q400,376 470,350 Q540,324 510,220 Z;
+                              M520,210 Q580,175 600,135 Q625,90 590,50 Q555,15 485,23 Q415,31 345,27 Q275,23 205,40 Q135,57 100,120 Q65,183 90,250 Q115,317 180,353 Q245,389 325,380 Q405,371 475,345 Q545,319 520,210 Z;
+                              M510,220 Q570,185 595,140 Q620,95 585,55 Q550,20 480,28 Q410,36 340,32 Q270,28 200,45 Q130,62 95,125 Q60,188 85,255 Q110,322 175,358 Q240,394 320,385 Q400,376 470,350 Q540,324 510,220 Z"
+                          />
+                        </path>
+                        
+                        <!-- Main Blob Shape (Front Layer) -->
+                        <path
+                          [attr.fill]="j === i ? 'url(#purpleGradient3)' : 'url(#cyanGradient3)'"
+                          d="M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
+                          class="blob-path blob-main">
+                          <animate
+                            attributeName="d"
+                            dur="8s"
+                            repeatCount="indefinite"
+                            values="
+                              M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z;
+                              M490,200 Q545,170 560,135 Q580,95 550,55 Q520,20 455,27 Q390,34 325,30 Q260,26 195,43 Q130,60 100,120 Q70,180 95,240 Q120,300 175,335 Q230,370 300,362 Q370,354 435,330 Q500,306 490,200 Z;
+                              M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
+                          />
+                        </path>
+                      </svg>
+                      
+                      <!-- Decorative Circles -->
+                      <div class="decorative-circles">
+                        <div class="circle circle-1"></div>
+                        <div class="circle circle-2"></div>
+                        <div class="circle circle-3"></div>
+                        <div class="circle circle-4"></div>
+                        <div class="circle circle-5"></div>
+                        <div class="circle circle-6"></div>
+                      </div>
+                    </div>
+                    
+                    <!-- Content Overlay -->
+                    <div class="blob-content">
+                      @if (blobSection.title) {
+                        <div class="blob-header">
+                          <div class="blob-title-with-lines">
+                            <span class="title-line"></span>
+                            <p class="blob-small-title">{{ blobSection.title }}</p>
+                            <span class="title-line"></span>
+                          </div>
+                        </div>
+                      }
+                      @if (blobSection.subtitle) {
+                        <h2 class="blob-main-heading">{{ blobSection.subtitle }}</h2>
+                      }
+                      @if (blobSection.content) {
+                        <p class="blob-description" [innerHTML]="blobSection.content"></p>
+                      }
+                    </div>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+      </section>
+    } @else if ((section.displayType === 'card' || section.displayType === 'horizontal-card') && (i === 0 || (page.sections[i - 1].displayType !== 'card' && page.sections[i - 1].displayType !== 'horizontal-card'))) {
       <!-- Card Section - Start -->
       <section class="section" [class.acquisitions-section]="section.icon === 'business-growth'" [class.leadership-section]="section.imageUrl && page.slug === 'leadership'" [class.about-cards-section]="page.slug === 'about-ahi' && !section.imageUrl && !section.icon" [class.cims-cards-section]="page.slug === 'cims-standards'" [style.background]="page.slug === 'cims-standards' ? 'linear-gradient(135deg, rgba(70, 171, 131, 0.12) 0%, rgba(38, 103, 167, 0.12) 100%)' : (page.slug === 'leadership' ? 'white' : (page.slug === 'industry-organizations' ? 'linear-gradient(135deg, rgba(19, 66, 96, 0.05) 0%, rgba(70, 171, 131, 0.1) 100%)' : 'white'))" style="padding-top: 3rem; padding-bottom: 3rem; position: relative;">
         @if (page.slug === 'cims-standards') {
@@ -150,10 +300,10 @@
                     <div class="info-card" 
                          [class.fade-in]="page.slug !== 'about-ahi' && page.slug !== 'cims-standards'"
                          [class.fade-in-up]="page.slug === 'about-ahi'"
-                         [class.fade-in-left]="page.slug === 'cims-standards' && (j - i) === 0"
-                         [class.fade-in-right]="page.slug === 'cims-standards' && (j - i) === 1"
-                         [class.fade-in-delay-1]="(j - i) === 0"
-                         [class.fade-in-delay-2]="(j - i) === 1"
+                         [class.fade-in-left]="page.slug === 'cims-standards' && i === 1 && (j - i) === 0"
+                         [class.fade-in-right]="page.slug === 'cims-standards' && i === 1 && (j - i) === 1"
+                         [class.fade-in-delay-1]="(j - i) === 0 && (page.slug !== 'cims-standards' || i === 1)"
+                         [class.fade-in-delay-2]="(j - i) === 1 && (page.slug !== 'cims-standards' || i === 1)"
                          [class.fade-in-delay-3]="(j - i) === 2"
                          [class.acquisitions-card]="cardSection.icon === 'business-growth'"
                          [attr.data-card-index]="(j - i)"
@@ -224,7 +374,7 @@
           </div>
         </div>
       </section>
-    } @else if (section.displayType !== 'card' && section.displayType !== 'horizontal-card' && !(page.slug === 'quality-control' && i === 0)) {
+    } @else if (section.displayType !== 'card' && section.displayType !== 'horizontal-card' && section.displayType !== 'blob' && !(page.slug === 'quality-control' && i === 0)) {
       <!-- Default Layout -->
       <section class="section" [style.background]="page.slug === 'about-ahi' && i === 0 ? 'white' : (page.slug === 'quality-control' && (i === 0 || i === 2 || i === 4) ? 'white' : (page.slug === 'cims-standards' ? 'white' : 'linear-gradient(180deg, rgba(70, 171, 131, 0.08) 0%, rgba(38, 103, 167, 0.08) 100%)'))" style="padding-top: 4rem; padding-bottom: 4rem; position: relative;">
         <div class="container">
