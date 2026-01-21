@@ -30,7 +30,7 @@
 @if (page) {
   <!-- Content Sections -->
   @for (section of page.sections; track section.title; let i = $index) {
-    @if (section.displayType === 'blob' && page.slug === 'about-ahi' && (i === 0 || page.sections[i - 1].displayType !== 'blob')) {
+    @if (section.displayType === 'blob' && (page.slug === 'about-ahi' || page.slug === 'leadership') && (i === 0 || page.sections[i - 1].displayType !== 'blob')) {
       <!-- Blob Sections for About Page -->
       <section class="blob-sections-container" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%); padding: 5rem 0; position: relative; overflow: hidden;">
         <div class="container">

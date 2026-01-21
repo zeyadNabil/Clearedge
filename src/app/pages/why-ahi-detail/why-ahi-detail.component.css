@@ -57,13 +57,13 @@
 /* Fade in up animation for About cards */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(80px) scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .fade-in-up.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .fade-in-up.fade-in-delay-1 {
@@ -76,6 +76,27 @@
 
 .fade-in-up.fade-in-delay-3 {
   transition-delay: 0.8s;
+}
+
+/* Enhanced blob animation */
+.blob-card-wrapper.fade-in-up {
+  opacity: 0;
+  transform: translateY(100px) scale(0.9);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blob-card-wrapper.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blob-card-wrapper.fade-in-up.visible:hover {
+  transform: translateY(-10px) scale(1.02);
+}
+
+.blob-card-wrapper.fade-in-up:nth-child(2) {
+  transition-delay: 0.3s;
 }
 
 /* New Leadership Card Design */
@@ -1903,8 +1924,27 @@
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Make "Who We Are" blob wider than "Our Vision" blob */
+.blob-card-wrapper.blob-purple {
+  max-width: 950px;
+}
+
+.blob-card-wrapper.blob-cyan {
+  max-width: 750px;
+}
+
+/* Center content in "Our Vision" blob */
+.blob-cyan .blob-content {
+  left: 45%;
+}
+
 .blob-card-wrapper:hover {
   transform: translateY(-10px) scale(1.02);
+}
+
+/* Lighten blobs on hover */
+.blob-card-wrapper:hover .blob-svg-container {
+  filter: brightness(1.2);
 }
 
 /* SVG Container */
@@ -1938,18 +1978,29 @@
 
 .blob-main {
   filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.3));
-  transition: filter 0.5s ease;
+  transition: filter 0.5s ease, transform 0.3s ease;
+}
+
+/* Make the main layer of "Who We Are" blob wider extending towards bottom right */
+.blob-purple .blob-main {
+  transform: scale(1.22, 1.15);
+  transform-origin: top left;
+  filter: none;
 }
 
 .blob-card-wrapper:hover .blob-main {
   filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.4));
 }
 
+.blob-purple.blob-card-wrapper:hover .blob-main {
+  filter: none;
+}
+
 /* Content Overlay */
 .blob-content {
   position: absolute;
   top: 28%;
-  left: 45%;
+  left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   text-align:center;
@@ -2013,6 +2064,7 @@
   max-width: 95%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 /* Decorative Circles */
@@ -2154,6 +2206,43 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) and (min-width: 1000px) {
+  /* Stack blobs vertically on medium screens */
+  .blob-sections-container .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  .blob-sections-container .row {
+    gap: 0 !important;
+    row-gap: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+  }
+  
+  .blob-card-wrapper {
+    margin: 0 auto;
+  }
+  
+  /* Move description down in Who We Are blob */
+  .blob-purple .blob-content {
+    top: 32%;
+  }
+  
+  /* Increase font size for Who We Are description */
+  .blob-purple .blob-description {
+    font-size: 1.25rem;
+  }
+  
+  /* Increase font size for Our Vision description */
+  .blob-cyan .blob-description {
+    font-size: 1.25rem;
+  }
+}
+
 @media (max-width: 1200px) {
   .blob-card-wrapper {
     max-width: 750px;
@@ -2172,30 +2261,14 @@
   }
 }
 
-@media (max-width: 992px) {
-  .blob-sections-container {
-    padding: 4rem 0 !important;
+@media (max-width: 1280px) {
+  /* Adjust blob widths for medium-large screens */
+  .blob-card-wrapper.blob-purple {
+    max-width: 750px;
   }
   
-  .blob-card-wrapper {
+  .blob-card-wrapper.blob-cyan {
     max-width: 650px;
-  }
-  
-  .blob-content {
-    padding: 2rem 2.5rem;
-  }
-  
-  .blob-main-heading {
-    font-size: 2rem;
-  }
-  
-  .blob-small-title {
-    font-size: 0.95rem;
-  }
-  
-  .blob-description {
-    font-size: 0.98rem;
-    line-height: 1.7;
   }
 }
 
@@ -2205,11 +2278,16 @@
   }
   
   .blob-sections-container .row {
-    gap: 1rem !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
   }
   
   .blob-sections-container .col-lg-6 {
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   
   .blob-card-wrapper {
@@ -2282,11 +2360,16 @@
 
 @media (max-width: 576px) {
   .blob-sections-container .row {
-    gap: 0.5rem !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+    margin: 0 !important;
   }
   
   .blob-sections-container .col-lg-6 {
-    margin-bottom: 0.25rem !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
   }
  
   .blob-card-wrapper {
@@ -2321,11 +2404,17 @@
   }
   
   .blob-sections-container .row {
-    gap: 0.25rem !important;
+    gap: 0 !important;
+    row-gap: 0 !important;
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+    margin: 0 !important;
   }
   
   .blob-sections-container .col-lg-6 {
     margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    padding: 0 !important;
   }
   
   .blob-card-wrapper {
