@@ -9,6 +9,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { WhyAhiDetailComponent } from './pages/why-ahi-detail/why-ahi-detail.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
+import { LeaderDetailComponent } from './pages/leader-detail/leader-detail.component';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
   {
     path: 'why-ahi/:slug',
     component: WhyAhiDetailComponent
+  },
+  {
+    path: 'leader/:slug',
+    component: LeaderDetailComponent
   },
   {
     path: 'safety',

@@ -12,6 +12,7 @@ export interface ContentSection {
   additionalImages?: string[];
   preCardText?: string;
   phone?: string;
+  leaderId?: string;
 }
 
 export interface WhyAhiPage {
@@ -114,22 +115,20 @@ export class WhyAhiDataService {
       heroImageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1920&q=80',
       sections: [
         {
-          title: 'Maher Abuawad',
-          subtitle: 'Chief Executive Officer',
-          content: 'Ms. Traci Haws is Owner and Chief Executive Officer of Clearedge. She is a graduate of University of Texas at Arlington with a degree in finance. She is also a graduate of Southwestern Paralegal (Institute) as a Certified Paralegal. Traci has been involved in the janitorial business for over 25 years. She is experienced in all aspects of the business and continues to lead the company\'s growth and success strategies.',
+          title: 'Maher Abuawad - CEO',
+          content: 'Maher Abuawad is a systems-driven executive with leadership experience across $65M+ in private-sector automation, process optimization, and enterprise transformation initiatives. As CEO of ClearEdge Solutions, Maher applies enterprise-grade operational discipline to the commercial cleaning industry—transforming a traditionally labor-driven service into a scalable, technology-enabled operation.',
           displayType: 'card',
           color: '#5A6C7D',
           imageUrl: 'assets/images/maher abuawad.png',
-          phone: '469-367-3626'
+          leaderId: 'maher-abuawad'
         },
         {
-          title: 'Mahmoud Taky',
-          subtitle: 'VP of Business Development',
+          title: 'Mahmoud Taky - CSO',
           content: 'Luke Bruns, serves as Director of Business Development. He joined the Clearedge team in 2005 after graduating from West Texas A&M University with a Bachelors degree in Advertising and Public Relations. He has been instrumental in the development of new Fortune 500 customers nationally and also in developing preferred vendor relationships between Clearedge and major third party facility management and property management firms. Luke is an active member of BOMA, IREM, CoreNet and IFMA.',
           displayType: 'card',
           color: '#46AB83',
           imageUrl: 'assets/images/mahmoud taky.png',
-          phone: '+1214-940-9713'
+          leaderId: 'mahmoud-taky'
         }
       ]
     },

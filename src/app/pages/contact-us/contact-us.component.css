@@ -41,3 +41,42 @@ textarea.form-control:focus {
   outline: none !important;
   box-shadow: 0 0 0 3px rgba(19, 66, 96, 0.1) !important;
 }
+
+.send-message-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.send-message-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: width 0.6s ease;
+}
+
+.send-message-btn:hover {
+  background: var(--accent-color) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(70, 171, 131, 0.4);
+}
+
+.send-message-btn:hover::before {
+  width: 200%;
+}
+
+.send-message-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.send-message-btn:disabled:hover {
+  background: var(--primary-color) !important;
+  transform: none;
+  box-shadow: none;
+}

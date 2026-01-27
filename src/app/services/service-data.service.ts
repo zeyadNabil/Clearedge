@@ -122,7 +122,7 @@ export class ServiceDataService {
       overview: 'There is growing evidence showing that green cleaning provides benefits not only to cleaning staff, but also to building occupants.',
       mainHeading: 'We don\'t just Clean it...We GREEN it!',
       mainDescription: 'There is growing evidence showing that green cleaning provides benefits not only to cleaning staff, but also to building occupants. In keeping with our commitment to provide our customers with the highest quality and environmentally responsible facilities services solutions, we offer a green cleaning program.',
-      heroImageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=1920&q=80',
+      heroImageUrl: './assets/images/greenCleaning.jfif',
       serviceItems: [
         { title: 'Green Seal Products', description: 'Clearedge takes a life-cycle approach, evaluating a product from its raw materials through the manufacturing process & ending with recycling or disposal. Products that pass these rigorous science-based evaluations can earn certification.', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
         { title: 'Green Certified Equipment', description: 'Vacuums are equipped with high performance filters, micro fiber cloths that ensure the attraction of minute dust particles, and mixing systems that take the guesswork and risk out of mixing chemicals.', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
@@ -167,12 +167,12 @@ export class ServiceDataService {
     },
     {
       id: 'worship-facilities',
-      title: 'Worship Facilities',
+      title: 'Faith-Based Facilities',
       slug: 'worship-facilities',
-      description: 'Respectful and thorough cleaning services for places of worship',
+      description: 'Respectful and thorough cleaning services for faith-based facilities',
       overview: 'We understand the importance of maintaining a clean, welcoming environment for your congregation.',
-      mainHeading: 'Professional Cleaning Services for Places of Worship',
-      mainDescription: 'We understand the importance of maintaining a clean, welcoming environment for your congregation. Our services are designed with respect for your facility\'s unique needs and schedules, ensuring that your place of worship remains a sacred and welcoming space for all.',
+      mainHeading: 'Professional Cleaning Services for Faith-Based Facilities',
+      mainDescription: 'We understand the importance of maintaining a clean, welcoming environment for your congregation. Our services are designed with respect for your facility\'s unique needs and schedules, ensuring that your faith-based facility remains a sacred and welcoming space for all.',
       heroImageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80',
       serviceItems: [
         { title: 'Sanctuary Cleaning', description: 'Respectful and thorough cleaning of your sanctuary and altar areas', imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80' },
@@ -181,7 +181,7 @@ export class ServiceDataService {
         { title: 'Carpet and Upholstery Care', description: 'Professional carpet cleaning and upholstery maintenance', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
         { title: 'Window and Fixture Cleaning', description: 'Crystal clear windows and polished fixtures throughout your facility', imageUrl: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80' },
         { title: 'Special Event Preparation', description: 'Preparation and cleanup services for special events and services', imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80' },
-        { title: 'Flexible Scheduling', description: 'Services scheduled around your worship times and events', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
+        { title: 'Flexible Scheduling', description: 'Services scheduled around your service times and events', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
       ],
       facilityTypes: [
         { name: 'Cleaning', icon: 'fas fa-hand-sparkles' },

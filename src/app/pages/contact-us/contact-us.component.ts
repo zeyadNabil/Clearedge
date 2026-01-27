@@ -19,10 +19,18 @@ export class ContactUsComponent {
   };
 
   onSubmit() {
-    // Handle form submission
-    console.log('Form submitted:', this.contactForm);
-    // You can add your form submission logic here
-    alert('Thank you for contacting us! We will get back to you soon.');
+    // Open mail provider with pre-filled information
+    const subject = encodeURIComponent('Contact Form Submission from ' + this.contactForm.name);
+    const body = encodeURIComponent(
+      `Name: ${this.contactForm.name}\n` +
+      `Email: ${this.contactForm.email}\n` +
+      `Phone: ${this.contactForm.phone || 'Not provided'}\n\n` +
+      `Message:\n${this.contactForm.message}`
+    );
+    
+    window.location.href = `mailto:support@clearedge.com?subject=${subject}&body=${body}`;
+    
+    // Reset form after opening mail client
     this.contactForm = { name: '', email: '', phone: '', message: '' };
   }
 }

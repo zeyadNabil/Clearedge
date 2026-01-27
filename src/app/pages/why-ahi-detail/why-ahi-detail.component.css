@@ -296,11 +296,12 @@
 
 
 .blob-leader-name {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.02em;
 }
 
 .blob-leader-phone {
@@ -322,6 +323,63 @@
   margin-top: 0.5rem;
   position: relative;
   overflow: hidden;
+}
+
+/* See More button for blob cards */
+.blob-leader-see-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blob-leader-see-more svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.blob-leader-see-more:hover svg {
+  transform: translateX(5px);
+}
+
+.blob-leader-see-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.blob-leader-see-more:hover::before {
+  left: 100%;
+}
+
+.blob-leader-see-more:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  color: white;
 }
 
 .blob-leader-phone::before {
@@ -502,6 +560,64 @@
   margin-top: 0.5rem;
 }
 
+/* See More button for regular leadership cards */
+.leader-see-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: white;
+  background: var(--primary-color);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(19, 66, 96, 0.3);
+  margin-top: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leader-see-more::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.leader-see-more:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.leader-see-more svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.leader-see-more:hover svg {
+  transform: translateX(5px);
+}
+
+.leader-see-more:hover {
+  background: var(--accent-color);
+  box-shadow: 0 8px 25px rgba(70, 171, 131, 0.4);
+  transform: translateY(-3px);
+  color: white;
+}
+
 .leader-phone:hover {
   background: var(--secondary-color);
   box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
@@ -515,9 +631,20 @@
   fill: currentColor;
 }
 
+.leader-see-more > * {
+  position: relative;
+  z-index: 1;
+}
+
 .leadership-card:hover .leader-phone {
   background: #46AB83;
   box-shadow: 0 6px 20px rgba(70, 171, 131, 0.4);
+}
+
+.leadership-card:hover .leader-see-more {
+  background: var(--accent-color);
+  box-shadow: 0 8px 25px rgba(70, 171, 131, 0.5);
+  transform: translateY(-2px);
 }
 
 @keyframes fadeInLeft {
@@ -1465,7 +1592,7 @@
 }
 
 .horizontal-card-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--primary-color);
   margin-bottom: 0.75rem;
@@ -1491,7 +1618,7 @@
   }
   
   .horizontal-card-title {
-    font-size: 1.1rem;
+    font-size: 1.35rem;
   }
   
   .horizontal-card-text {
@@ -1516,7 +1643,7 @@
   }
   
   .horizontal-card-title {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -1607,7 +1734,7 @@
   }
   
   .blob-leader-name {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   
   .blob-leader-phone {
@@ -1665,7 +1792,7 @@
   }
   
   .blob-leader-name {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
   }
   
   .blob-leader-phone {
@@ -1749,7 +1876,7 @@
   }
   
   .blob-leader-name {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .blob-leader-phone {
@@ -1815,7 +1942,7 @@
   }
   
   .blob-leader-name {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin-bottom: 0.4rem;
   }
   
@@ -1886,7 +2013,7 @@
   }
   
   .blob-leader-name {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   
   .blob-leader-phone {
@@ -2083,12 +2210,27 @@
   border-radius: 50%;
   opacity: 0.7;
   animation: float 6s ease-in-out infinite;
+  /* 3D Effect */
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.2),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+}
+
+.circle:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 6px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.4);
 }
 
 /* Purple Blob Circles */
 .blob-purple .circle {
-  background: linear-gradient(135deg, rgba(19, 66, 96, 0.7), rgba(17, 55, 76, 0.7));
-  box-shadow: 0 4px 15px rgba(19, 66, 96, 0.4);
+  background: linear-gradient(135deg, rgba(19, 66, 96, 0.8), rgba(17, 55, 76, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .blob-purple .circle-1 {
@@ -2141,8 +2283,8 @@
 
 /* Cyan Blob Circles */
 .blob-cyan .circle {
-  background: linear-gradient(135deg, rgba(70, 171, 131, 0.7), rgba(38, 103, 167, 0.7));
-  box-shadow: 0 4px 15px rgba(70, 171, 131, 0.4);
+  background: linear-gradient(135deg, rgba(70, 171, 131, 0.8), rgba(38, 103, 167, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .blob-cyan .circle-1 {

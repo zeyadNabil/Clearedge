@@ -62,6 +62,25 @@
                               <stop offset="50%" style="stop-color:#11374C;stop-opacity:1" />
                               <stop offset="100%" style="stop-color:#2667A7;stop-opacity:1" />
                             </linearGradient>
+                            <!-- 3D Effect Filters for Purple -->
+                            <filter id="shadow-3d-purple" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+                              <feOffset dx="6" dy="8" result="offsetblur"/>
+                              <feComponentTransfer>
+                                <feFuncA type="linear" slope="0.5"/>
+                              </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                            </filter>
+                            <filter id="inner-shadow-purple" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                              <feOffset in="blur" dx="-3" dy="-3" result="offsetBlur"/>
+                              <feFlood flood-color="#ffffff" flood-opacity="0.3" result="offsetColor"/>
+                              <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"/>
+                              <feBlend in="SourceGraphic" in2="offsetBlur" mode="normal"/>
+                            </filter>
                             <filter id="glow-purple">
                               <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
                               <feMerge>
@@ -85,6 +104,25 @@
                               <stop offset="50%" style="stop-color:#2667A7;stop-opacity:1" />
                               <stop offset="100%" style="stop-color:#134260;stop-opacity:1" />
                             </linearGradient>
+                            <!-- 3D Effect Filters for Cyan -->
+                            <filter id="shadow-3d-cyan" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+                              <feOffset dx="6" dy="8" result="offsetblur"/>
+                              <feComponentTransfer>
+                                <feFuncA type="linear" slope="0.5"/>
+                              </feComponentTransfer>
+                              <feMerge>
+                                <feMergeNode/>
+                                <feMergeNode in="SourceGraphic"/>
+                              </feMerge>
+                            </filter>
+                            <filter id="inner-shadow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+                              <feOffset in="blur" dx="-3" dy="-3" result="offsetBlur"/>
+                              <feFlood flood-color="#ffffff" flood-opacity="0.3" result="offsetColor"/>
+                              <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur"/>
+                              <feBlend in="SourceGraphic" in2="offsetBlur" mode="normal"/>
+                            </filter>
                             <filter id="glow-cyan">
                               <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
                               <feMerge>
@@ -128,20 +166,43 @@
                         </path>
                         
                         <!-- Main Blob Shape (Front Layer) -->
-                        <path
-                          [attr.fill]="j === i ? 'url(#purpleGradient3)' : 'url(#cyanGradient3)'"
-                          d="M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
-                          class="blob-path blob-main">
-                          <animate
-                            attributeName="d"
-                            dur="8s"
-                            repeatCount="indefinite"
-                            values="
-                              M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z;
-                              M490,200 Q545,170 560,135 Q580,95 550,55 Q520,20 455,27 Q390,34 325,30 Q260,26 195,43 Q130,60 100,120 Q70,180 95,240 Q120,300 175,335 Q230,370 300,362 Q370,354 435,330 Q500,306 490,200 Z;
-                              M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
-                          />
-                        </path>
+                        @if (j === i) {
+                          <!-- Purple blob (Who We Are) -->
+                          <path
+                            fill="url(#purpleGradient3)"
+                            filter="url(#shadow-3d-purple)"
+                            d="M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
+                            class="blob-path blob-main"
+                            style="paint-order: fill;">
+                            <animate
+                              attributeName="d"
+                              dur="8s"
+                              repeatCount="indefinite"
+                              values="
+                                M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z;
+                                M490,200 Q545,170 560,135 Q580,95 550,55 Q520,20 455,27 Q390,34 325,30 Q260,26 195,43 Q130,60 100,120 Q70,180 95,240 Q120,300 175,335 Q230,370 300,362 Q370,354 435,330 Q500,306 490,200 Z;
+                                M480,210 Q535,180 555,140 Q575,100 545,60 Q515,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 295,367 Q365,359 430,335 Q495,311 480,210 Z"
+                            />
+                          </path>
+                        } @else {
+                          <!-- Cyan blob (Our Vision) - Extended to the right -->
+                          <path
+                            fill="url(#cyanGradient3)"
+                            filter="url(#shadow-3d-cyan)"
+                            d="M480,210 Q575,180 610,140 Q625,100 585,60 Q545,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 315,367 Q390,359 460,335 Q555,311 480,210 Z"
+                            class="blob-path blob-main"
+                            style="paint-order: fill;">
+                            <animate
+                              attributeName="d"
+                              dur="8s"
+                              repeatCount="indefinite"
+                              values="
+                                M480,210 Q575,180 610,140 Q625,100 585,60 Q545,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 315,367 Q390,359 460,335 Q555,311 480,210 Z;
+                                M490,200 Q585,170 615,135 Q630,95 590,55 Q550,20 455,27 Q390,34 325,30 Q260,26 195,43 Q130,60 100,120 Q70,180 95,240 Q120,300 175,335 Q230,370 320,362 Q395,354 465,330 Q560,306 490,200 Z;
+                                M480,210 Q575,180 610,140 Q625,100 585,60 Q545,25 450,32 Q385,39 320,35 Q255,31 190,48 Q125,65 95,125 Q65,185 90,245 Q115,305 170,340 Q225,375 315,367 Q390,359 460,335 Q555,311 480,210 Z"
+                            />
+                          </path>
+                        }
                       </svg>
                       
                       <!-- Decorative Circles -->
@@ -251,12 +312,17 @@
                               {{ cardSection.title }}
                             </h3>
                           }
-                          @if (cardSection.phone) {
-                            <a [href]="'tel:' + cardSection.phone" class="blob-leader-phone">
+                          @if (cardSection.subtitle) {
+                            <p class="blob-leader-subtitle" style="color: white; font-size: 0.95rem; margin-bottom: 0; font-weight: 500;">
+                              {{ cardSection.subtitle }}
+                            </p>
+                          }
+                          @if (cardSection.leaderId) {
+                            <a [routerLink]="['/leader', cardSection.leaderId]" class="blob-leader-see-more">
+                              See More
                               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                               </svg>
-                              {{ cardSection.phone }}
                             </a>
                           }
                         </div>
@@ -282,12 +348,12 @@
                               {{ cardSection.title }}
                             </h3>
                           }
-                          @if (cardSection.phone && page.slug === 'leadership') {
-                            <a [href]="'tel:' + cardSection.phone" class="leader-phone">
+                          @if (cardSection.leaderId && page.slug === 'leadership') {
+                            <a [routerLink]="['/leader', cardSection.leaderId]" class="leader-see-more">
+                              See More
                               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                               </svg>
-                              {{ cardSection.phone }}
                             </a>
                           }
                         </div>
@@ -396,7 +462,7 @@
                   </h2>
                 }
                 @if (section.subtitle) {
-                  <h4 class="mb-0" style="color: var(--text-light); font-size: 1.5rem; font-weight: 400; font-style: italic;">
+                  <h4 class="mb-0" style="color: var(--text-light); font-size: 1.5rem; font-weight: 400; font-style: normal;">
                     {{ section.subtitle }}
                   </h4>
                 }

@@ -14,6 +14,10 @@
   --text-light: #666;
   --white: #FFFFFF;
 
+  /* Typography Fonts */
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
   /* Spacing using rem */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -32,6 +36,8 @@
   --font-size-3xl: 2rem;
   --font-size-4xl: 2.5rem;
   --font-size-5xl: 3rem;
+  --font-size-6xl: 3.5rem;
+  --font-size-7xl: 4rem;
 }
 
 /* Global Styles */
@@ -59,14 +65,275 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  font-weight: 400;
+  font-size: var(--font-size-base);
 }
+
+/* ====================================
+   TYPOGRAPHY SYSTEM
+   ==================================== */
+
+/* Headings - Bebas Neue */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.hero-title,
+.section-title,
+.page-title,
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+/* H1 - Main Page Titles */
+h1, .h1 {
+  font-size: var(--font-size-5xl);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* H2 - Section Titles */
+h2, .h2, .section-title {
+  font-size: var(--font-size-4xl);
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+/* H3 - Subsection Titles */
+h3, .h3 {
+  font-size: var(--font-size-3xl);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/* H4 - Card Titles */
+h4, .h4, .card-title {
+  font-size: var(--font-size-2xl);
+  line-height: 1.25;
+  margin-bottom: 0.875rem;
+}
+
+/* H5 */
+h5, .h5 {
+  font-size: var(--font-size-xl);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+/* H6 */
+h6, .h6 {
+  font-size: var(--font-size-lg);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+/* Hero Titles - Extra Large */
+.hero-title {
+  font-size: var(--font-size-6xl);
+  line-height: 1;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+/* Hero Section - Preserve White Text */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.hero-section h5,
+.hero-section h6,
+.hero-section p,
+section[style*="color: white"] h1,
+section[style*="color: white"] h2,
+section[style*="color: white"] h3,
+section[style*="color: white"] h4,
+section[style*="color: white"] h5,
+section[style*="color: white"] h6 {
+  color: white !important;
+}
+
+/* Body Text - Poppins */
+p, 
+.paragraph,
+.description,
+.text-body,
+li,
+span,
+div:not(.hero-title):not(.section-title):not(.card-title) {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: var(--font-size-base);
+  font-weight: 400;
+}
+
+/* Lead Paragraph */
+.lead {
+  font-size: var(--font-size-lg);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* Small Text */
+small, .small {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+/* Buttons - Poppins */
+button,
+.btn,
+input[type="submit"],
+input[type="button"],
+.button {
+  font-family: var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--font-size-sm);
+}
+
+/* Links - Poppins */
+a {
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+
+/* Labels and Form Elements - Poppins */
+label,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+}
+
+/* RESPONSIVE TYPOGRAPHY
+   ==================== */
+
+/* Desktop (1200px and up) - Default sizes set above */
+
+/* Tablet (768px - 1199px) */
+@media (max-width: 1199px) {
+  :root {
+    --font-size-5xl: 2.5rem;
+    --font-size-4xl: 2rem;
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.375rem;
+    --font-size-xl: 1.125rem;
+    --font-size-6xl: 3rem;
+    --font-size-7xl: 3.5rem;
+  }
+
+  h1, .h1 { font-size: var(--font-size-5xl); }
+  h2, .h2, .section-title { font-size: var(--font-size-4xl); }
+  h3, .h3 { font-size: var(--font-size-3xl); }
+  h4, .h4, .card-title { font-size: var(--font-size-2xl); }
+  .hero-title { font-size: var(--font-size-6xl); }
+}
+
+/* Mobile Large (576px - 767px) */
+@media (max-width: 767px) {
+  :root {
+    --font-size-5xl: 2rem;
+    --font-size-4xl: 1.75rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
+    --font-size-xl: 1.125rem;
+    --font-size-6xl: 2.5rem;
+    --font-size-7xl: 3rem;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
+  h1, .h1 { font-size: var(--font-size-5xl); }
+  h2, .h2, .section-title { font-size: var(--font-size-4xl); }
+  h3, .h3 { font-size: var(--font-size-3xl); }
+  h4, .h4, .card-title { font-size: var(--font-size-2xl); }
+  .hero-title { font-size: var(--font-size-6xl); }
+
+  p, .paragraph { font-size: var(--font-size-base); }
+  .lead { font-size: var(--font-size-lg); }
+}
+
+/* Mobile Small (up to 575px) */
+@media (max-width: 575px) {
+  :root {
+    --font-size-5xl: 1.75rem;
+    --font-size-4xl: 1.5rem;
+    --font-size-3xl: 1.375rem;
+    --font-size-2xl: 1.125rem;
+    --font-size-xl: 1rem;
+    --font-size-6xl: 2rem;
+    --font-size-7xl: 2.5rem;
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  h1, .h1 { 
+    font-size: var(--font-size-5xl);
+    margin-bottom: 1rem;
+  }
+  
+  h2, .h2, .section-title { 
+    font-size: var(--font-size-4xl);
+    margin-bottom: 0.875rem;
+  }
+  
+  h3, .h3 { 
+    font-size: var(--font-size-3xl);
+    margin-bottom: 0.75rem;
+  }
+  
+  h4, .h4, .card-title { 
+    font-size: var(--font-size-2xl);
+    margin-bottom: 0.625rem;
+  }
+  
+  .hero-title { 
+    font-size: var(--font-size-6xl);
+    margin-bottom: 1.5rem;
+  }
+
+  p, .paragraph { 
+    font-size: var(--font-size-base);
+    margin-bottom: 0.875rem;
+  }
+  
+  .lead { 
+    font-size: var(--font-size-lg);
+    margin-bottom: 1.25rem;
+  }
+
+  button, .btn {
+    font-size: 0.8rem;
+    padding: 0.625rem 1.5rem;
+  }
+}
+
+/* ====================================
+   END TYPOGRAPHY SYSTEM
+   ==================================== */
 
 /* Modern Animation Classes with Smooth Easing */
 .fade-in {
@@ -304,14 +571,18 @@ a {
 
 /* Custom Bootstrap Overrides */
 .btn-primary {
+  font-family: var(--font-body);
   background-color: var(--primary-color);
   border-color: var(--primary-color);
   padding: 0.75rem 2rem;
   font-size: var(--font-size-base);
+  font-weight: 500;
   border-radius: 0.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .btn-primary:hover {
@@ -326,15 +597,19 @@ a {
 }
 
 .btn-accent {
+  font-family: var(--font-body);
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--white);
   padding: 0.75rem 2rem;
   font-size: var(--font-size-base);
+  font-weight: 500;
   border-radius: 0.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .btn-accent:hover {
