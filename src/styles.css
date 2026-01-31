@@ -149,12 +149,10 @@ h6, .h6 {
 
 /* Hero Section - Preserve White Text */
 .hero-section h1,
-.hero-section h2,
 .hero-section h3,
 .hero-section h4,
 .hero-section h5,
 .hero-section h6,
-.hero-section p,
 section[style*="color: white"] h1,
 section[style*="color: white"] h2,
 section[style*="color: white"] h3,
