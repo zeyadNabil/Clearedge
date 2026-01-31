@@ -69,7 +69,7 @@ export class ServiceDataService {
         { title: 'Event Services', description: 'Let Clearedge help you prepare your holiday event or office function.', imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80' },
         { title: 'Maintenance Person', description: 'Clearedge can provide you a maintenance person for all of your on site needs.', imageUrl: './assets/images/servicesImgs/maintenancePerson.png' },
         { title: 'Disinfecting Services', description: 'Prepare for the high flu season with Disinfecting services from our team.', imageUrl: './assets/images/servicesImgs/disinfectingServices.jpg' },
-        { title: 'Emergency and After Work Hours Services', description: 'From inclement weather to pipe breaks, Clearedge can be on site during evenings and weekends.', imageUrl: './assets/images/servicesImgs/emergencyAfterHours.jpg' },
+        { title: 'Emergency and After Work Hours Services', description: 'From inclement weather to pipe breaks, Clearedge can be on site during evenings and weekends.', imageUrl: './assets/images/servicesImgs/emergencyAfterHours.png' },
         { title: 'Multi-tier Supervision', description: 'Clearedge strongly believes that multiple sets of eyes are required to engulf and manage all cleaning needs.', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
       ],
       facilityTypes: [
@@ -96,14 +96,14 @@ export class ServiceDataService {
       mainDescription: 'Your customers, clients, and employees form an impression about your property based on the visual impact of the surrounding landscape and curb appeal. At Clearedge Landscape Maintenance, we use our proven management methods, quality control procedures, and knowledgeable staff to ensure your landscaping is healthy and well maintained.',
       heroImageUrl: './assets/images/servicesImgs/landscapingServices.jpg',
       serviceItems: [
-        { title: 'Landscaping Services', description: 'Clearedge Landscaping Maintenance uses proven quality control procedures to ensure your landscape is well maintained.', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80' },
-        { title: 'Irrigation Installation', description: 'An irrigation system is key to maintaining the health of your investment.', imageUrl: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80' },
-        { title: 'Irrigation Design Build', description: 'Clearedge Employs a licensed irrigator to perform service, system checks, and help maintain your irrigation system.', imageUrl: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80' },
-        { title: 'Sprinkler Services', description: 'Your landscape will water itself with sprinkler services from Clearedge.', imageUrl: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80' },
-        { title: 'Landscape Installation', description: 'Get a custom, beautiful landscape from Clearedge that will show off your unique corporate style.', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80' },
-        { title: 'Seasonal Color', description: 'A vibrant color program that utilizes our climates and seasonal dynamics completes the landscaping palette.', imageUrl: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80' },
-        { title: 'Snow Removal', description: 'Landscape and Exterior Services include snow and ice removal.', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Water Waste Management', description: 'A licensed irrigator performs service, system checks, and maintenance to take care of your water waste management.', imageUrl: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80' }
+        { title: 'Landscaping Services', description: 'Clearedge Landscaping Maintenance uses proven quality control procedures to ensure your landscape is well maintained.', imageUrl: './assets/images/servicesImgs/landScapingService2.png' },
+        { title: 'Irrigation Installation', description: 'An irrigation system is key to maintaining the health of your investment.', imageUrl: './assets/images/servicesImgs/irrigationInstallation.jpg' },
+        { title: 'Irrigation Design Build', description: 'Clearedge Employs a licensed irrigator to perform service, system checks, and help maintain your irrigation system.', imageUrl: './assets/images/servicesImgs/IrrigationDesignBuild.jpg' },
+        { title: 'Sprinkler Services', description: 'Your landscape will water itself with sprinkler services from Clearedge.', imageUrl: './assets/images/servicesImgs/sprinklerServices.jpg' },
+        { title: 'Landscape Installation', description: 'Get a custom, beautiful landscape from Clearedge that will show off your unique corporate style.', imageUrl: './assets/images/servicesImgs/landscapeInstallation.jpg' },
+        { title: 'Seasonal Color', description: 'A vibrant color program that utilizes our climates and seasonal dynamics completes the landscaping palette.', imageUrl: './assets/images/servicesImgs/seasonalColor.jpg' },
+        { title: 'Snow Removal', description: 'Landscape and Exterior Services include snow and ice removal.', imageUrl: './assets/images/servicesImgs/snowRemoval.png' },
+        { title: 'Water Waste Management', description: 'A licensed irrigator performs service, system checks, and maintenance to take care of your water waste management.', imageUrl: './assets/images/servicesImgs/waterWasteManagement.jfif' }
       ],
       facilityTypes: [
         { name: 'Corporate Campuses', icon: 'fas fa-building' },
@@ -124,10 +124,10 @@ export class ServiceDataService {
       mainDescription: 'There is growing evidence showing that green cleaning provides benefits not only to cleaning staff, but also to building occupants. In keeping with our commitment to provide our customers with the highest quality and environmentally responsible facilities services solutions, we offer a green cleaning program.',
       heroImageUrl: './assets/images/servicesImgs/greenCleaning.png',
       serviceItems: [
-        { title: 'Green Seal Products', description: 'Clearedge takes a life-cycle approach, evaluating a product from its raw materials through the manufacturing process & ending with recycling or disposal. Products that pass these rigorous science-based evaluations can earn certification.', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
-        { title: 'Green Certified Equipment', description: 'Vacuums are equipped with high performance filters, micro fiber cloths that ensure the attraction of minute dust particles, and mixing systems that take the guesswork and risk out of mixing chemicals.', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
-        { title: 'LEED Certification', description: 'Clearedge\'s LEED Certification program can contribute over 40% of the points necessary for basic certification. When combined with Clearedge\'s operations and maintenance capabilities, we are one of the few companies that can self perform the scope of services necessary to help you achieve LEED-EB certification.', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
-        { title: 'Team Cleaning', description: 'Four types of specialists concentrate on defined tasks such as light duty and trash, vacuuming, restrooms, and utility work. This leads to high quality work, easier training, and a better bottom line.', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' }
+        { title: 'Green Seal Products', description: 'Clearedge takes a life-cycle approach, evaluating a product from its raw materials through the manufacturing process & ending with recycling or disposal. Products that pass these rigorous science-based evaluations can earn certification.', imageUrl: './assets/images/servicesImgs/greenSeal.jpg' },
+        { title: 'Green Certified Equipment', description: 'Vacuums are equipped with high performance filters, micro fiber cloths that ensure the attraction of minute dust particles, and mixing systems that take the guesswork and risk out of mixing chemicals.', imageUrl: './assets/images/servicesImgs/greenCertifiedEquipment.png' },
+        { title: 'LEED Certification', description: 'Clearedge\'s LEED Certification program can contribute over 40% of the points necessary for basic certification. When combined with Clearedge\'s operations and maintenance capabilities, we are one of the few companies that can self perform the scope of services necessary to help you achieve LEED-EB certification.', imageUrl: './assets/images/servicesImgs/leed.png' },
+        { title: 'Team Cleaning', description: 'Four types of specialists concentrate on defined tasks such as light duty and trash, vacuuming, restrooms, and utility work. This leads to high quality work, easier training, and a better bottom line.', imageUrl: './assets/images/servicesImgs/teamCleaning.png' }
       ],
       facilityTypes: [],
       affiliations: ['USGBC', 'ISSA', 'GCU', 'Green Seal'],
@@ -149,9 +149,9 @@ export class ServiceDataService {
       mainDescription: 'Whether your concerns are viable particles or potential yield increases, Clearedge Facility Services, Inc. will develop a program to give you control. Clearedge is committed to providing cleanroom and data center cleaning services that meet the highest standards of cleanliness and contamination control.',
       heroImageUrl: './assets/images/servicesImgs/dataCenterServices.jpg',
       serviceItems: [
-        { title: 'Cleanroom Protocol', description: 'Clearedge\'s certified technicians are tested in cleanroom protocol cleaning', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Trusted Experience', description: 'Clearedge currently does business with many types of cleanroom and production environments, such as aerospace, biotechnology, and pharmaceutical facilities.', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Quality Service', description: 'We strive to maintain consistently good performance levels at all times, through technician training, follow up inspections, and customer feedback.', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' }
+        { title: 'Cleanroom Protocol', description: 'Clearedge\'s certified technicians are tested in cleanroom protocol cleaning', imageUrl: './assets/images/servicesImgs/cleanRoomProtocol.png' },
+        { title: 'Trusted Experience', description: 'Clearedge currently does business with many types of cleanroom and production environments, such as aerospace, biotechnology, and pharmaceutical facilities.', imageUrl: './assets/images/servicesImgs/trustedExperience.png' },
+        { title: 'Quality Service', description: 'We strive to maintain consistently good performance levels at all times, through technician training, follow up inspections, and customer feedback.', imageUrl: './assets/images/servicesImgs/qualityService.jfif' }
       ],
       facilityTypes: [
         { name: 'Semiconductor', icon: 'fas fa-microchip' },
@@ -175,13 +175,13 @@ export class ServiceDataService {
       mainDescription: 'We understand the importance of maintaining a clean, welcoming environment for your congregation. Our services are designed with respect for your facility\'s unique needs and schedules, ensuring that your faith-based facility remains a sacred and welcoming space for all.',
       heroImageUrl: './assets/images/servicesImgs/faith.jpg',
       serviceItems: [
-        { title: 'Sanctuary Cleaning', description: 'Respectful and thorough cleaning of your sanctuary and altar areas', imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80' },
-        { title: 'Fellowship Hall Maintenance', description: 'Complete cleaning and maintenance of fellowship halls and gathering spaces', imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80' },
-        { title: 'Restroom and Kitchen Deep Cleaning', description: 'Thorough sanitization and cleaning of restrooms and kitchen facilities', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Carpet and Upholstery Care', description: 'Professional carpet cleaning and upholstery maintenance', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
-        { title: 'Window and Fixture Cleaning', description: 'Crystal clear windows and polished fixtures throughout your facility', imageUrl: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80' },
-        { title: 'Special Event Preparation', description: 'Preparation and cleanup services for special events and services', imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80' },
-        { title: 'Flexible Scheduling', description: 'Services scheduled around your service times and events', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
+        { title: 'Sanctuary Cleaning', description: 'Respectful and thorough cleaning of your sanctuary and altar areas', imageUrl: './assets/images/servicesImgs/sanctuaryCleaning.jpg' },
+        { title: 'Fellowship Hall Maintenance', description: 'Complete cleaning and maintenance of fellowship halls and gathering spaces', imageUrl: './assets/images/servicesImgs/fellowshipHallMaintenance.jfif' },
+        { title: 'Restroom and Kitchen Deep Cleaning', description: 'Thorough sanitization and cleaning of restrooms and kitchen facilities', imageUrl: './assets/images/servicesImgs/restroom&kitchenDeepClean.jfif' },
+        { title: 'Carpet and Upholstery Care', description: 'Professional carpet cleaning and upholstery maintenance', imageUrl: './assets/images/servicesImgs/carpetCare.jfif' },
+        { title: 'Window and Fixture Cleaning', description: 'Crystal clear windows and polished fixtures throughout your facility', imageUrl: './assets/images/servicesImgs/windowCleaning.jfif' },
+        { title: 'Special Event Preparation', description: 'Preparation and cleanup services for special events and services', imageUrl: './assets/images/servicesImgs/specialEventPreparation.jfif' },
+        { title: 'Flexible Scheduling', description: 'Services scheduled around your service times and events', imageUrl: './assets/images/servicesImgs/flexibleScheduling.jfif' }
       ],
       facilityTypes: [
         { name: 'Cleaning', icon: 'fas fa-hand-sparkles' },
@@ -202,14 +202,14 @@ export class ServiceDataService {
       mainDescription: 'Educational facilities require specialized cleaning protocols to maintain healthy learning environments. Our services are designed to support student health, safety, and academic success. We understand the unique challenges of maintaining cleanliness in high-traffic educational settings.',
       heroImageUrl: './assets/images/servicesImgs/educationServices.jpg',
       serviceItems: [
-        { title: 'Classroom Cleaning', description: 'Daily cleaning and sanitization of classrooms and common areas', imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80' },
-        { title: 'Gymnasium and Athletic Facility Maintenance', description: 'Comprehensive cleaning of gymnasiums, locker rooms, and athletic facilities', imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80' },
-        { title: 'Cafeteria and Kitchen Sanitation', description: 'Deep cleaning and sanitization of cafeterias and kitchen facilities', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Restroom Deep Cleaning', description: 'Thorough sanitization and maintenance of all restroom facilities', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Library and Study Area Maintenance', description: 'Quiet, thorough cleaning of libraries and study spaces', imageUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80' },
-        { title: 'HVAC System Cleaning', description: 'Maintenance and cleaning of HVAC systems for improved air quality', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Disinfecting Protocols', description: 'Comprehensive disinfecting and sanitizing protocols to prevent illness', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Summer Deep Cleaning Programs', description: 'Intensive deep cleaning programs during summer breaks', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' }
+        { title: 'Classroom Cleaning', description: 'Daily cleaning and sanitization of classrooms and common areas', imageUrl: './assets/images/servicesImgs/classRoomCLeaning.jfif' },
+        { title: 'Gymnasium and Athletic Facility Maintenance', description: 'Comprehensive cleaning of gymnasiums, locker rooms, and athletic facilities', imageUrl: './assets/images/servicesImgs/gymnasium&AthleticFacilityMaintenance.jfif' },
+        { title: 'Cafeteria and Kitchen Sanitation', description: 'Deep cleaning and sanitization of cafeterias and kitchen facilities', imageUrl: './assets/images/servicesImgs/cafeteria&KitchenSanitation.jfif' },
+        { title: 'Restroom Deep Cleaning', description: 'Thorough sanitization and maintenance of all restroom facilities', imageUrl: './assets/images/servicesImgs/restroomDeepCleaning.jfif' },
+        { title: 'Library and Study Area Maintenance', description: 'Quiet, thorough cleaning of libraries and study spaces', imageUrl: './assets/images/servicesImgs/library&StudyAreaMaintenance.jfif' },
+        { title: 'HVAC System Cleaning', description: 'Maintenance and cleaning of HVAC systems for improved air quality', imageUrl: './assets/images/servicesImgs/hvacSystemCleaning.jfif' },
+        { title: 'Disinfecting Protocols', description: 'Comprehensive disinfecting and sanitizing protocols to prevent illness', imageUrl: './assets/images/servicesImgs/DisinfectingProtocols.jfif' },
+        { title: 'Summer Deep Cleaning Programs', description: 'Intensive deep cleaning programs during summer breaks', imageUrl: './assets/images/servicesImgs/summerDeepCleaningPrograms.jfif' }
       ],
       facilityTypes: [
         { name: 'Elementary Schools', icon: 'fas fa-school' },
@@ -231,14 +231,14 @@ export class ServiceDataService {
       mainDescription: 'Healthcare facilities require the highest standards of cleanliness and infection control. Our medical cleaning services follow strict protocols to prevent healthcare-associated infections and maintain compliance with regulatory standards. We understand the critical importance of maintaining sterile environments in healthcare settings.',
       heroImageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920&q=80',
       serviceItems: [
-        { title: 'OSHA and CDC Compliant Protocols', description: 'Strict adherence to OSHA and CDC guidelines for healthcare facility cleaning', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Hospital-Grade Disinfectants', description: 'Use of EPA-registered hospital-grade disinfectants for maximum effectiveness', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Infection Prevention and Control', description: 'Comprehensive infection prevention protocols to protect patients and staff', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Operating Room Cleaning', description: 'Specialized cleaning of operating rooms and procedure areas', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Patient Room Deep Cleaning', description: 'Thorough cleaning and disinfection of patient rooms', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Isolation Room Protocols', description: 'Specialized protocols for isolation and quarantine rooms', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Medical Waste Management', description: 'Proper handling and disposal of medical waste', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
-        { title: 'HIPAA-Compliant Service', description: 'Full compliance with HIPAA regulations for patient privacy', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
+        { title: 'OSHA and CDC Compliant Protocols', description: 'Strict adherence to OSHA and CDC guidelines for healthcare facility cleaning', imageUrl: './assets/images/servicesImgs/osha&CompliantProtocols.jfif' },
+        { title: 'Hospital-Grade Disinfectants', description: 'Use of EPA-registered hospital-grade disinfectants for maximum effectiveness', imageUrl: './assets/images/servicesImgs/hospital-Grade Disinfectants.jfif' },
+        { title: 'Infection Prevention and Control', description: 'Comprehensive infection prevention protocols to protect patients and staff', imageUrl: './assets/images/servicesImgs/infectionPrevention&Control.jfif' },
+        { title: 'Operating Room Cleaning', description: 'Specialized cleaning of operating rooms and procedure areas', imageUrl: './assets/images/servicesImgs/OperatingRoomCleaning.jfif' },
+        { title: 'Patient Room Deep Cleaning', description: 'Thorough cleaning and disinfection of patient rooms', imageUrl: './assets/images/servicesImgs/patientRoomDeepCleaning.jfif' },
+        { title: 'Isolation Room Protocols', description: 'Specialized protocols for isolation and quarantine rooms', imageUrl: './assets/images/servicesImgs/isolationRoomProtocols.jfif' },
+        { title: 'Medical Waste Management', description: 'Proper handling and disposal of medical waste', imageUrl: './assets/images/servicesImgs/medicalWasteManagement.jpg' },
+        { title: 'HIPAA-Compliant Service', description: 'Full compliance with HIPAA regulations for patient privacy', imageUrl: './assets/images/servicesImgs/hIPAA-CompliantService.png' }
       ],
       facilityTypes: [],
       affiliations: ['ASA', 'NSA', 'WBENC']
@@ -253,14 +253,14 @@ export class ServiceDataService {
       mainDescription: 'First impressions matter in retail. Our cleaning services help create a welcoming shopping environment that encourages customers to stay longer and return more often. We understand that a clean, well-maintained retail space directly impacts customer satisfaction and sales.',
       heroImageUrl: './assets/images/servicesImgs/retail.jpg',
       serviceItems: [
-        { title: 'Floor Care and Maintenance', description: 'Professional floor cleaning, polishing, and maintenance', imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80' },
-        { title: 'Display Case and Fixture Cleaning', description: 'Thorough cleaning of display cases, fixtures, and shelving', imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80' },
-        { title: 'Restroom Maintenance', description: 'Regular cleaning, sanitization, and restocking of restroom facilities', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Entrance and Window Cleaning', description: 'Crystal clear windows and spotless entrances for maximum curb appeal', imageUrl: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?w=800&q=80' },
-        { title: 'Trash Removal and Waste Management', description: 'Efficient trash removal and waste management services', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
-        { title: 'High-Traffic Area Maintenance', description: 'Focused cleaning of high-traffic areas throughout the day', imageUrl: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80' },
-        { title: 'Seasonal Deep Cleaning', description: 'Comprehensive deep cleaning programs for seasonal maintenance', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Flexible Scheduling', description: 'Services scheduled around your business hours to minimize disruption', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
+        { title: 'Floor Care and Maintenance', description: 'Professional floor cleaning, polishing, and maintenance', imageUrl: './assets/images/servicesImgs/floorCareMaintenance.jfif' },
+        { title: 'Display Case and Fixture Cleaning', description: 'Thorough cleaning of display cases, fixtures, and shelving', imageUrl: './assets/images/servicesImgs/displayCaseFixtureCleaning.jfif' },
+        { title: 'Restroom Maintenance', description: 'Regular cleaning, sanitization, and restocking of restroom facilities', imageUrl: './assets/images/servicesImgs/RestroomMaintenance.jfif' },
+        { title: 'Entrance and Window Cleaning', description: 'Crystal clear windows and spotless entrances for maximum curb appeal', imageUrl: './assets/images/servicesImgs/entranceWindowCleaning.jfif' },
+        { title: 'Trash Removal and Waste Management', description: 'Efficient trash removal and waste management services', imageUrl: './assets/images/servicesImgs/trashRemovalWasteManagement.jfif' },
+        { title: 'High-Traffic Area Maintenance', description: 'Focused cleaning of high-traffic areas throughout the day', imageUrl: './assets/images/servicesImgs/high-TrafficAreaMaintenance.jfif' },
+        { title: 'Seasonal Deep Cleaning', description: 'Comprehensive deep cleaning programs for seasonal maintenance', imageUrl: './assets/images/servicesImgs/seasonalDeepCleaning.jfif' },
+        { title: 'Flexible Scheduling', description: 'Services scheduled around your business hours to minimize disruption', imageUrl: './assets/images/servicesImgs/FlexibleScheduling.jpeg' }
       ],
       facilityTypes: [],
       affiliations: ['ASA', 'NSA', 'WBENC']
@@ -275,14 +275,14 @@ export class ServiceDataService {
       mainDescription: 'Assisted living facilities require cleaning services that prioritize resident health and comfort. Our team is trained to work sensitively in these environments while maintaining the highest cleanliness standards. We understand the unique needs of senior living communities and provide services that respect residents\' dignity and comfort.',
       heroImageUrl: './assets/images/servicesImgs/assistedServices.jpg',
       serviceItems: [
-        { title: 'Resident Room Cleaning', description: 'Gentle, thorough cleaning and sanitization of resident rooms', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Common Area Maintenance', description: 'Regular cleaning of common areas, lounges, and gathering spaces', imageUrl: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80' },
-        { title: 'Dining Facility Cleaning', description: 'Comprehensive cleaning and sanitization of dining facilities', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Laundry and Linen Services', description: 'Professional laundry and linen services for resident comfort', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
-        { title: 'Infection Control Protocols', description: 'Strict infection control protocols to protect resident health', imageUrl: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80' },
-        { title: 'Gentle Cleaning Products', description: 'Use of gentle, non-irritating cleaning products safe for sensitive residents', imageUrl: 'https://images.unsplash.com/photo-1611262588024-d12430b98920?w=800&q=80' },
-        { title: 'Flexible Scheduling', description: 'Services scheduled around resident activities and routines', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' },
-        { title: 'Emergency Response', description: 'Rapid response for spills, accidents, and urgent cleaning needs', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' }
+        { title: 'Resident Room Cleaning', description: 'Gentle, thorough cleaning and sanitization of resident rooms', imageUrl: './assets/images/servicesImgs/AssistedLivingServices.jfif' },
+        { title: 'Common Area Maintenance', description: 'Regular cleaning of common areas, lounges, and gathering spaces', imageUrl: './assets/images/servicesImgs/commonAreaMaintenance.png' },
+        { title: 'Dining Facility Cleaning', description: 'Comprehensive cleaning and sanitization of dining facilities', imageUrl: './assets/images/servicesImgs/diningFacilityCleaning.jpg' },
+        { title: 'Laundry and Linen Services', description: 'Professional laundry and linen services for resident comfort', imageUrl: './assets/images/servicesImgs/laundry&LinenServices.jpg' },
+        { title: 'Infection Control Protocols', description: 'Strict infection control protocols to protect resident health', imageUrl: './assets/images/servicesImgs/infectionControlProtocols.jfif' },
+        { title: 'Gentle Cleaning Products', description: 'Use of gentle, non-irritating cleaning products safe for sensitive residents', imageUrl: './assets/images/servicesImgs/gentleCleaningProducts.jfif' },
+        { title: 'Flexible Scheduling', description: 'Services scheduled around resident activities and routines', imageUrl: './assets/images/servicesImgs/SchedulingAssistedlivingServices.png' },
+        { title: 'Emergency Response', description: 'Rapid response for spills, accidents, and urgent cleaning needs', imageUrl: './assets/images/servicesImgs/emergencyResponse.jfif' }
       ],
       facilityTypes: [
         { name: 'Assisted Living Facilities', icon: 'fas fa-home' },
@@ -303,14 +303,14 @@ export class ServiceDataService {
       mainDescription: 'Water damage requires immediate attention to prevent further damage and mold growth. Our water restoration services provide rapid response and comprehensive restoration to get your facility back to normal quickly. We understand the urgency of water damage situations and provide 24/7 emergency response services.',
       heroImageUrl: './assets/images/servicesImgs/waterRestoration.jpeg',
       serviceItems: [
-        { title: '24/7 Emergency Response', description: 'Round-the-clock emergency response for water damage situations', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Water Extraction and Removal', description: 'Rapid water extraction using professional-grade equipment', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Structural Drying', description: 'Comprehensive structural drying and dehumidification services', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Mold Prevention and Remediation', description: 'Expert mold prevention and remediation to protect your facility', imageUrl: 'https://images.unsplash.com/photo-1504303391375-e5e2293be34c?w=800&q=80' },
-        { title: 'Content Restoration', description: 'Professional cleaning and restoration of damaged contents', imageUrl: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80' },
-        { title: 'Odor Removal and Sanitization', description: 'Complete odor removal and sanitization services', imageUrl: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80' },
-        { title: 'Document and Equipment Recovery', description: 'Specialized recovery services for documents and equipment', imageUrl: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80' },
-        { title: 'Insurance Claim Assistance', description: 'Help with insurance claims and documentation', imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80' }
+        { title: '24/7 Emergency Response', description: 'Round-the-clock emergency response for water damage situations', imageUrl: './assets/images/servicesImgs/emergencyResponse.png' },
+        { title: 'Water Extraction and Removal', description: 'Rapid water extraction using professional-grade equipment', imageUrl: './assets/images/servicesImgs/waterExtraction&Removal.jfif' },
+        { title: 'Structural Drying', description: 'Comprehensive structural drying and dehumidification services', imageUrl: './assets/images/servicesImgs/structuralDrying.jfif' },
+        { title: 'Mold Prevention and Remediation', description: 'Expert mold prevention and remediation to protect your facility', imageUrl: './assets/images/servicesImgs/moldPrevention&Remediation.jfif' },
+        { title: 'Content Restoration', description: 'Professional cleaning and restoration of damaged contents', imageUrl: './assets/images/servicesImgs/ContentRestoration.jpg' },
+        { title: 'Odor Removal and Sanitization', description: 'Complete odor removal and sanitization services', imageUrl: './assets/images/servicesImgs/odorRemoval&Sanitization.png' },
+        { title: 'Document and Equipment Recovery', description: 'Specialized recovery services for documents and equipment', imageUrl: './assets/images/servicesImgs/odorRemoval&Sanitization.png' },
+        { title: 'Insurance Claim Assistance', description: 'Help with insurance claims and documentation', imageUrl: './assets/images/servicesImgs/insuranceClaimAssistance.jfif' }
       ],
       facilityTypes: [
         { name: 'K-12 Public Schools', icon: 'fas fa-apple-alt' },
